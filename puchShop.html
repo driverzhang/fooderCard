@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>推荐商品</title>
+		<script src="//at.alicdn.com/t/font_xmirwjozzyr5dn29.js"></script>
+
+		<style>
+			body,
+			p,
+			input,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			ul,
+			li,
+			dl,
+			dt,
+			dd,
+			form {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				vertical-align: middle;
+				font-weight: normal;
+			}
+			
+			* {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+			a {
+				cursor: pointer;
+				text-decoration: none;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				width: 100%;
+				font-family: "微软雅黑";
+				/*background: #f3f4f5;*/
+				/*background: #f0f0f0;*/
+				background: white;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.icon {
+				margin-left: 15px;
+				margin-top: 11px;
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+				color: #DDDDDD;
+				;
+			}
+			
+			img {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.main {
+				width: 100%;
+				/*margin-top: 50px;*/
+			}
+			
+			.header-title {
+				height: 50px;
+				line-height: 50px;
+				border-bottom: 1px solid #DDDDDD;
+				position: fixed;
+				top: 0;
+				z-index: 9;
+				width: 100%;
+				background: white;
+				text-align: center;
+			}
+			
+			.header-left {
+				z-index: 99;
+				position: fixed;
+				float: left;
+			}
+			
+			.header-center {
+				font-size: 20px;
+			}
+			
+			.xian {
+				margin-left: 4%;
+				width: 96%;
+				margin-top: 5px;
+				border: none;
+				height: 1px;
+				border-top: 1px solid #DDDDDD;
+			}
+			
+			.head-center01 {
+				padding: 11px 0;
+				margin-left: 5%;
+				border-bottom: 1px solid #eee;
+				position: relative;
+			}
+			
+			.pic-in {
+				/*关键CSS用于关键定位点*/
+				float: left;
+				width: 35%;
+				padding-top: 30%;
+				position: relative;
+				display: block;
+			}
+			
+			.pic-in-1 {
+				left: 0;
+				top: 0;
+				width: 100%;
+				position: absolute;
+				height: 100%;
+			}
+			
+			.text_box {
+				/*关键CSS用于关键定位点*/
+				margin-left: 38.5%;
+				position: relative;
+				margin-right: 3.5%;
+				padding-top: 30%;
+				/*关键CSS用于关键定位点，可以控制div高度，与width定我百分或确定值时*/
+			}
+			
+			.text_box_dec {
+				position: absolute;
+				top: 2px;
+			}
+			
+			.tex_boc_bot1 {
+				position: absolute;
+				bottom: 0;
+			}
+			
+			.text_dec_top {
+				font-size: 14px;
+				color: black;
+				word-break: break-all;
+				text-overflow: ellipsis;
+				/*显示省略符号*/
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				/*从上向下垂直排列子元素。*/
+				-webkit-line-clamp: 1;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<div class="header-title">
+			<div class="header-left">
+
+				<a href="javascript:window.history.back();">
+					<svg class="icon" aria-hidden="true" style="font-size: 30px;margin-left: 0; color: black;">
+						<use xlink:href="#icon-houtui"></use>
+					</svg>
+				</a>
+			</div>
+			<div class="header-center">
+				<span>推荐商品</span>
+			</div>
+		</div>-->
+		<div class="main">
+			<div id="shopFood">
+			</div>
+		</div>
+		<div id="container" style="display: none;"></div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/MD5S.js"></script>
+		<script src="js/TravelTailorSafeInterface.js"></script>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=7eb4af60c3683b71c186b6abcdae7e3a&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
+		<script src="js/TouchSlide.1.1.js"></script>
+		<script src="js/gclNewClub.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script>
+			//获取 url 后的参数方法。
+			function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return unescape(r[2]);
+				return null;
+			}
+			var cc = GetQueryString("id");
+			//			alert(cc);
+			var CompanyImgsrc = httppp + "/Images/ExpertImg/admin/CompanyImg/";
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var shopindex = 0;
+			var lat = localStorage.getItem("lat");
+			var lng = localStorage.getItem("lng");
+			//判断是否获取经纬度
+			if(lat == null || lat == undefined || lat == "") {
+				// 调用高德地图
+				gclmap.init(undefined, undefined, true, "mapback");
+
+				function mapback(rs) {
+					if(rs.position == undefined) {
+						lat = localStorage.setItem("lat", "28.750334");
+						lng = localStorage.setItem("lng", "104.605221");
+						return;
+					} else if(rs.position.lat != null && rs.position.lat != undefined) {
+						lat = localStorage.setItem("lat", rs.position.lat);
+						lng = localStorage.setItem("lng", rs.position.lng);
+					} else {
+						lat = localStorage.setItem("lat", "28.750334");
+						lng = localStorage.setItem("lng", "104.605221");
+					}
+				}
+			}
+
+			$(function() {
+				var ar = new Array();
+				var ph = {
+					Collection: [{
+						F: "Id",
+						O: "=",
+						P: "@@Id",
+						V: cc
+					}]
+				};
+				ar.Condition = ph;
+				ar.InterfaceAddress = "api/ShopInfo"; //查询接口通用一致
+				ar.name = "ProductShopView"; //店铺表名
+				ar.OrderBy = "CreationDate desc";
+				ar.Index = shopindex + 0;
+				ar.Size = 30;
+				ar.Handshake_Time = CurentTime('-', true);
+				aes(ar, "endPCUserIdData");
+
+			})
+
+			function endPCUserIdData(rs) {
+				var TData = eval("(" + rs + ")");
+				console.log(TData);
+				if(TData != "") {
+					shopindex++;
+					for(var i = 0; i < TData.length; i++) {
+						var imgc = httppp + '/Images/ExpertImg/admin/CompanyImg/' + TData[i].proId + '_80x80.jpg';
+						var chtml = '<a href="shopText-shop.html?id=' + TData[i].proId + '&pd=' + TData[i].ProPhotosId + '"><div class="head-center01"><div class="pic-in">';
+						chtml += '<img class="pic-in-1" src="' + imgc + '" /></div>';
+						chtml += '<div class="text_box"><div class="text_box_dec">';
+						chtml += '<span class="text_dec_top">' + TData[i].ProName + '</span></div>';
+						chtml += '<div class="tex_boc_bot1"><span style="color: red;font-size: 14px;">' + "￥" + TData[i].proprice + ' </span></div></div></div></a>';
+						document.getElementById("shopFood").innerHTML += chtml;
+					}
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

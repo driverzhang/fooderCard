@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>商家</title>
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_363158_x4eoopyioeuvunmi.css">
+		<script src="//at.alicdn.com/t/font_vjhhfmntnpnwmi.js"></script>
+		<style>
+			body,
+			p,
+			input,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			ul,
+			li,
+			dl,
+			dt,
+			dd,
+			form {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				vertical-align: middle;
+				font-weight: normal;
+			}
+			
+			a:link,
+			a:visited {
+				color: #1296db;
+				text-decoration: none;
+				cursor: pointer;
+			}
+			
+			a:hover {
+				background: none;
+			}
+			
+			html,
+			body {
+				-webkit-font-smoothing: antialiased;
+				/*chrome、safari*/
+				-moz-osx-font-smoothing: grayscale;
+				/*firefox*/
+				/*height: 100%;*/
+				width: 100%;
+				font-family: "微软雅黑";
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			* {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+			.icon {
+				margin-left: 15px;
+				margin-top: 12px;
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+				color: #DDDDDD;
+			}
+			
+			img {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.main {
+				width: 100%;
+			}
+			
+			.xian {
+				margin-top: 10px;
+				margin-left: 45px;
+				border: none;
+				height: 1px;
+				border-top: 1px solid #DDDDDD;
+			}
+			
+			.header-title {
+				height: 50px;
+				line-height: 50px;
+				border-bottom: 1px solid #DDDDDD;
+				position: fixed;
+				top: 0;
+				z-index: 9;
+				width: 100%;
+				background: white;
+				text-align: center;
+			}
+			
+			.header-left {
+				z-index: 99;
+				position: fixed;
+				left: 10px;
+			}
+			
+			.header-center {
+				font-size: 20px;
+				margin-left: 25px;
+			}
+			
+			.footer {
+				margin: 0 auto;
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+				height: 50px;
+				border-top: solid 1px #d8d8d8;
+				z-index: 999;
+				background: white;
+			}
+			
+			.footer-down1 {
+				color: #F6942A;
+				float: left;
+				width: 25%;
+				text-align: center;
+				margin-top: 10px;
+			}
+			
+			.footer1 {
+				margin: 0 auto;
+				margin-top: 50px;
+				/*position: fixed;
+				bottom: 0;*/
+				width: 100%;
+				height: 75px;
+				border-top: solid 1px #d8d8d8;
+				/*z-index: 999;*/
+				background: white;
+			}
+			
+			.footer-down {
+				color: #444;
+				float: left;
+				width: 25%;
+				text-align: center;
+				margin-top: 5px;
+			}
+			
+			#shangjia {
+				color: #f6842a;
+			}
+			
+			.text-down {
+				font-size: 14px;
+			}
+			
+			.head-center01 {
+				padding: 11px 0;
+				margin-left: 12px;
+				/*border-bottom: 1px solid #eee;
+				border-top: 1px solid #eee;*/
+				position: relative;
+			}
+			
+			.pic-in {
+				/*关键CSS用于关键定位点*/
+				float: left;
+				width: 25%;
+				padding-top: 22%;
+				position: relative;
+				display: block;
+			}
+			
+			.pic-in-1 {
+				left: 0;
+				top: 0;
+				width: 100%;
+				position: absolute;
+				height: 100%;
+			}
+			
+			.text_box {
+				/*关键CSS用于关键定位点*/
+				margin-left: 29.5%;
+				position: relative;
+				margin-right: 3.5%;
+				padding-top: 21.5%;
+				/*关键CSS用于关键定位点，可以控制div高度，与width定我百分或确定值时*/
+			}
+			
+			.text_box_dec {
+				position: absolute;
+				top: 2px;
+			}
+			
+			.tex_boc_bot1 {
+				position: absolute;
+				bottom: 0;
+			}
+			
+			.tex_boc_bot11 {
+				position: absolute;
+				bottom: 17px;
+			}
+			
+			.text_dec_top {
+				font-size: 14px;
+				color: #5f5f5f;
+				word-break: break-all;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 1;
+				overflow: hidden;
+			}
+			
+			.xian1 {
+				width: 100%;
+				/*margin-top: 5px;*/
+				border: none;
+				height: 2px;
+				border-top: 2px solid #f3f4f5;
+			}
+			
+			.xian11 {
+				width: 100%;
+				/*margin-top: 5px;*/
+				border: none;
+				height: 8px;
+				border-top: 8px solid #f3f4f5;
+			}
+			
+			#zezao {
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.33);
+				position: absolute;
+				top: 128px;
+				left: 0;
+				z-index: 99;
+				display: none;
+			}
+			
+			#Szezao {
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.33);
+				position: absolute;
+				top: 128px;
+				left: 0;
+				z-index: 99;
+				display: none;
+			}
+			
+			.zezaoText {
+				/*margin-top: 50px;*/
+				height: 40%;
+				background: white;
+				overflow: overlay;
+			}
+			
+			.bank {
+				padding-left: 4%;
+			}
+			
+			.biaoqian {
+				width: 100%;
+				height: 41px;
+			}
+			
+			.biaoqian1,
+			.biaoqian4 {
+				text-align: center;
+				font-size: 14px;
+				line-height: 2;
+				border-radius: 3px;
+				background: #e9e9e9;
+				color: #444;
+				width: 30%;
+				float: left;
+				margin: 3px 1.5%;
+			}
+			
+			.biaoqian2 {
+				background: #f9da66;
+			}
+			
+			.zezaoText-footer {
+				background: white;
+				position: absolute;
+				top: 40%;
+				width: 100%;
+				z-index: 999;
+				border-top: 1px solid #e9e9e9;
+			}
+			
+			.zezaoText-footer-left {
+				float: left;
+				width: 50%;
+				text-align: center;
+				border-radius: 1px;
+				/*border: 1px solid #e9e9e9;*/
+				border-bottom: none;
+				border-left: none;
+				line-height: 2.5;
+				font-size: 14px;
+			}
+			
+			.zi {
+				line-height: 0.88;
+			}
+			
+			.ZC-fenlei1 {
+				background-color: white;
+			}
+			
+			.head-search-left {
+				float: left;
+				width: 80%;
+				margin-left: 2%;
+				margin-top: 10px;
+			}
+			
+			.head-search-rgiht {
+				float: right;
+				margin-top: 10px;
+				line-height: 30px;
+				width: 18%;
+				text-align: center;
+				color: #444444;
+			}
+			
+			#search-text {
+				float: left;
+				height: 30px;
+				width: 100%;
+				/*margin-left: 3%;*/
+				font-size: 14px;
+				text-align: center;
+				background: #EFEFF4;
+				border: none;
+				outline: none;
+			}
+			
+			#Sys {
+				float: right;
+				font-size: 30px;
+				position: relative;
+				right: 10px;
+				z-index: 111111;
+			}
+			
+			.dazhe {
+				margin-top: 7px;
+				/*margin-bottom: 5px;*/
+				font-size: 10px;
+				float: left;
+				color: white;
+				border: 1px solid red;
+				background-color: red;
+				border-radius: 2px;
+				padding: 0px 2px;
+			}
+			
+			.dazhe2 {
+				margin: 5px;
+				margin-top: 7px;
+				float: left;
+				font-size: 13px;
+				color: #9f9f9f;
+			}
+			
+			.huodong {
+				color: #9f9f9f;
+				margin: 5px;
+				float: right;
+				font-size: 13px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section id="index">
+			<header class="header-title">
+				<div class="header-left">
+					<i id="search" class="iconfont icon-sousuo" style=" color: #444;float: left;font-size: 18px;position: fixed;z-index: 1111;"></i>
+				</div>
+				<div>
+					<a href="ruzhu.html" style="color: #444"><i id="Sys" class="iconfont icon-shangjiaruzhu-"></i></a>
+				</div>
+				<div class="header-center">
+					<span>商 家</span>
+				</div>
+			</header>
+			<div class="main">
+				<div class="footer1">
+					<div id="dianzan" class="footer-down1">
+						<i class="iconfont icon-dianzan" style="font-size: 25px;"></i>
+						<div><span class="text-down">点赞</span></div>
+					</div>
+					<div id="juli" class="footer-down1">
+						<i class="iconfont icon-juli" style="font-size: 25px;"></i>
+						<div><span class="text-down">距离</span></div>
+					</div>
+
+					<div id="shaixuan" class="footer-down1">
+						<i class="iconfont icon-shaixuan" style="font-size: 22px;position: relative;top: 3px;"></i>
+						<div style="margin-top: 3px;"><span class="text-down">筛选</span></div>
+					</div>
+					<div id="zhuanchang" class="footer-down1">
+						<i class="iconfont icon-leimupinleifenleileibie2" style="font-size: 25px;"></i>
+						<div><span class="text-down">专区</span></div>
+					</div>
+				</div>
+
+				<div id="Szezao">
+					<div class="zezaoText">
+						<div class="bank">
+							<svg class="icon" aria-hidden="true" style="font-size: 20px;margin-left: 0; color: #808080;">
+								<use xlink:href="#icon-jinshangquan"></use>
+							</svg>
+							<span style="font-size: 14px;color: #444;">商圈</span>
+						</div>
+						<div style="margin-top: 10px; float: left; width: 100%;" id="Bigbiaoqian">
+							<div class="biaoqian" id="shangQ">
+								<div class="biaoqian1 biaoqian2 biaoqian3" id="all" data="">全部</div>
+
+							</div>
+						</div>
+
+						<div class="bank">
+							<svg class="icon" aria-hidden="true" style="font-size: 20px;margin-left: 0; color: #808080;">
+								<use xlink:href="#icon-jiage"></use>
+							</svg>
+							<span style="font-size: 14px;color: #444;">价格</span>
+						</div>
+						<div style="margin-top: 10px; width: 100%;">
+							<div class="biaoqian" id="jiage">
+								<div class="biaoqian4 biaoqian2 biaoqian3" id="No" min="0" max="99999">不限</div>
+								<div class="biaoqian4" min="0" max="100">100以下</div>
+								<div class="biaoqian4" min="100" max="200">100~200</div>
+								<div class="biaoqian4" min="200" max="300">200~300</div>
+								<div class="biaoqian4" min="300" max="500">300~500</div>
+								<div class="biaoqian4" min="500" max="99999">土豪专区</div>
+							</div>
+
+						</div>
+						<div class="zezaoText-footer">
+							<div class="zezaoText-footer-left">
+								<span>重置</span>
+							</div>
+							<div class="zezaoText-footer-left biaoqian2">
+								<span>确定</span>
+							</div>
+						</div>
+
+					</div>
+					<div id="Szezao-down" style="color: transparent;height: 60%;"></div>
+				</div>
+			</div>
+
+			<div id="zezao">
+				<div class="zezaoText">
+					<div class="zeaoText-left" id="zhuanQ" style="background-color: #f0f0f0;width: 50%;height: 100%;">
+						<div class="ZC-fenlei ZC-fenlei1" style="padding: 5px;color: #5f5f5f;padding-left: 10px;">全部</div>
+					</div>
+					<div class="zeaoText-right">
+					</div>
+				</div>
+				<div id="zezao-down" style="color: transparent;height: 60%;"></div>
+			</div>
+			<hr class="xian11" />
+			<div style="min-height: 360px;" id="shopping">
+				<!--<div class="head-center01">
+					<a href="shopText.html?id=' + TData[i].Id + '">
+						<div class="pic-in"><img class="pic-in-1" src="' + imgA + '" /></div>
+						<div class="text_box">
+							<div class="text_box_dec"><span class="text_dec_top">商品名称 </span></div>
+							<div class="tex_boc_bot11">
+								<div style="float: left;width: 75px;"><span style="color: red;font-size: 12px">10 元/人</span></div>
+								<div style="float: left;">&nbsp;</div>
+								<div style="float: left;width: 55px;"><span style="color: #9F9F9F;font-size:12px">10 赞</span></div>
+							</div>
+							<div class="tex_boc_bot1">
+								<div style="float: left;width: 75px;"><span style="color: #9F9F9F;font-size: 12px">所在商圈</span></div>
+								<div style="float: left;">&nbsp;</div>
+								<div style="float: left;width: 55px;"><span class="JW" LONG=" ' + TData[i].LONG + '" Dismen=" ' + TData[i].Dismension + '" style="color: #9F9F9F;font-size:12px">2.99km</span></div>
+							</div>
+							<div class="dazhe"><b>折</b></div>
+							<div class="dazhe2">全场限时<span id="jize">5折</span></div>
+							<span class="huodong">3个活动</span>
+						</div>
+				</div>
+				<hr class="xian1" />-->
+
+			</div>
+			<div style="width: 100%;height: 50px;"></div>
+			<footer class="footer">
+				<a href="index.html">
+					<div id="shouye" class="footer-down">
+						<i class="iconfont icon-shouye" style="font-size: 22px;"></i>
+						<div class="zi"><span class="text-down">首页</span></div>
+					</div>
+				</a>
+				<a href="shopping.html">
+					<div id="shangjia" class="footer-down">
+						<i class="iconfont icon-shangjia1" style="font-size: 22px;"></i>
+						<div class="zi"><span class="text-down">商家</span></div>
+					</div>
+				</a>
+				<a href="boomshaklak.html">
+					<div id="chihuoka" class="footer-down">
+						<i class="iconfont icon-qia" style="font-size: 22px;"></i>
+						<div class="zi"><span class="text-down">吃货卡</span></div>
+					</div>
+				</a>
+				<a href="person.html">
+					<div id="my" class="footer-down">
+						<i class="iconfont icon-xiaolian" style="font-size: 22px;"></i>
+						<div class="zi"><span class="text-down">我的</span></div>
+					</div>
+				</a>
+				<div id="container" style="display: none;"></div>
+			</footer>
+		</section>
+		<section id="searchH" style="display: none;">
+			<header class="head-search">
+				<div class="head-search-left">
+					<i class="iconfont icon-sousuo" id="searchS" style="font-size: 17px;position: fixed;left: 7%;margin-top: 5px;"></i>
+					<i class="iconfont icon-quxiao" id="xiaoqu" onclick="qingkong()" style=" font-size: 14px;position: absolute;left: 75%;color: #8F8F94;margin-top: 8px;"></i>
+					<input id="search-text" placeholder="请输入商铺名" />
+				</div>
+				<div class="head-search-rgiht" id="quxiao">
+					<span>取消</span>
+				</div>
+				<div id="shoppingS" style="padding-top: 40px;">
+				</div>
+			</header>
+			<div id="container" style="display: none;"></div>
+		</section>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/MD5S.js"></script>
+		<script src="js/TravelTailorSafeInterface.js"></script>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=7eb4af60c3683b71c186b6abcdae7e3a&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
+		<script src="js/gclNewClub.js"></script>
+		<script>
+			$("#search").click(function() {
+				$("#index").hide();
+				$("#searchH").show();
+			});
+
+			$("#searchS").click(function() {
+				inputText = $("#search-text").val();
+				ggdate();
+			});
+
+			$(document).keydown(function(event) {
+				if(event.keyCode == 13) { //键盘点确认	
+					inputText = $("#search-text").val();
+					ggdate();
+				}
+			});
+
+			$("#quxiao").click(function() {
+				$("#index").show();
+				$("#searchH").hide(function() {
+					document.getElementById("search-text").value = "";
+					$("#search-text").attr('placeholder', '请输入商铺名');
+					document.getElementById("shoppingS").innerHTML = "";
+				});
+			});
+
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+
+			$("#search-text").focus(function() {
+				$("#search-text").attr("placeholder", "");
+			});
+
+			function qingkong() {
+				document.getElementById("search-text").value = "";
+				document.getElementById("shoppingS").innerHTML = "";
+			}
+
+			function ggdate() {
+				var ppp = {
+					Collection: [{
+						F: "StopName",
+						O: "%",
+						P: "@@StopName",
+						V: inputText
+					}, {
+						F: "status",
+						O: "=",
+						P: "@@status",
+						V: 1
+					}, ]
+				};
+				document.getElementById("shoppingS").innerHTML = "";
+				shopindex = 0;
+				GetShop(ppp, "Stop", "endrIdSData") //数据展示
+			}
+
+			//获取 url 后的参数方法。
+			function GetQueryString(name) {
+
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				//				if(r != null) return unescape(r[2]);
+				if(r != null) return decodeURI(r[2]);
+				return null;
+			}
+			var shopindex = 0;
+			var lat = localStorage.getItem("lat");
+			var lng = localStorage.getItem("lng");
+			var sqText,
+				jgText,
+				zqText,
+				bhtml,
+				chtml,
+				Tyoe,
+				min,
+				max,
+				RJMoney,
+				Sq,
+				e,
+				f,
+				t,
+				p;
+			var h = {
+				Collection: [{
+					F: "TypeBTName",
+					O: "=",
+					P: "@@TypeBTName",
+					V: "热门活动"
+				}, ]
+			};
+			var cc = GetQueryString("pd"); //分类专区 名称
+			// 如果客户是从 首页主专区 进入 商家列表：
+			if(cc != null && cc != undefined && cc != "") {
+				t = {
+					Collection: [{
+						F: "Tyoe",
+						O: "=",
+						P: "@@Tyoe",
+						V: cc
+					}, {
+						F: "status",
+						O: "=",
+						P: "@@status",
+						V: 1
+					}, ]
+				};
+				var tt = {
+					Collection: [{
+						F: "status",
+						O: "=",
+						P: "@@status",
+						V: 1
+					}, ]
+				};
+				document.getElementById("shopping").innerHTML = "";
+				shopindex = 0;
+				GetShop(tt, "Stop", "endData");
+				GetShop(t, "Stop", "endPCUserIdData");
+			} else {
+				var pop = {
+					Collection: [{
+						F: "status",
+						O: "=",
+						P: "@@status",
+						V: 1
+					}, ]
+				};
+				GetShop(pop, "Stop", "endPUserIdData");
+			}
+
+			Getzhuanqu(h, "TYPEVIEW", "endUserIdData");
+
+			//判断是否获取经纬度
+			if(lat == null || lat == undefined || lat == "") {
+				// 调用高德地图
+				setTimeout(function() {
+					gclmap.init(undefined, undefined, true, "mapback")
+				}, 200);
+
+				function mapback(rs) {
+					if(rs.position == undefined) {
+						lat = localStorage.setItem("lat", "28.750334");
+						lng = localStorage.setItem("lng", "104.605221");
+						return;
+					} else if(rs.position.lat != null && rs.position.lat != undefined) {
+						lat = localStorage.setItem("lat", rs.position.lat);
+						lng = localStorage.setItem("lng", rs.position.lng);
+					} else {
+						lat = localStorage.setItem("lat", "28.750334");
+						lng = localStorage.setItem("lng", "104.605221");
+					}
+				}
+			}
+
+			$(function() {
+				$("#zhuanchang").click(function() {
+					$("#zezao").toggle();
+					$("#Szezao").hide();
+				});
+
+				$("#zezao-down").click(function() {
+					$("#zezao").toggle();
+				});
+				$("#shaixuan").click(function() {
+					$("#zezao").hide();
+					$("#Szezao").toggle();
+				});
+				$("#Szezao-down").click(function() {
+					$("#Szezao").toggle();
+				})
+				//点击价格
+				$(".biaoqian4").click(function() {
+					$(".biaoqian4").removeClass('biaoqian2');
+					$(this).addClass("biaoqian2");
+				});
+
+				//点击 点赞 前端进行排序：
+				$("#dianzan").click(function() {
+					cc = GetQueryString("pd");
+					if(cc != null && cc != undefined && cc != "") {
+						
+						var pp = {
+							Collection: [{
+								F: "Tyoe",
+								O: "=",
+								P: "@@Tyoe",
+								V: cc
+							}, {
+								F: "dz",
+								O: "=",
+								P: "@@dz",
+								V: ""
+							}, {
+								F: "status",
+								O: "=",
+								P: "@@status",
+								V: 1
+							}, ]
+						};
+						document.getElementById("shopping").innerHTML = "";
+						shopindex = 0;
+						GetShop(pp, "Stop", "endrIdData");
+						cc = '';
+					} else {
+						var pp = {
+							Collection: [{
+								F: "dz",
+								O: "=",
+								P: "@@dz",
+								V: ""
+							}, {
+								F: "status",
+								O: "=",
+								P: "@@status",
+								V: 1
+							}, ]
+						};
+
+						document.getElementById("shopping").innerHTML = "";
+						shopindex = 0;
+						GetShop(pp, "Stop", "endrIdData");
+
+					}
+				});
+				//点击重置
+				$(".zezaoText-footer-left").eq(0).click(function() {
+					$(".biaoqian1").removeClass("biaoqian2");
+					$(".biaoqian4").removeClass("biaoqian2");
+					$(".biaoqian3").addClass("biaoqian2");
+				});
+
+			});
+
+			//若没有获取 用户的经纬度。
+			function getPosition() {
+				// 调用高德地图
+				setTimeout(function() {
+					gclmap.init(undefined, undefined, true, "mapback")
+				}, 200);
+
+				function mapback(rs) {
+					if(rs.position == undefined) {
+						lat = localStorage.setItem("lat", "28.750334");
+						lng = localStorage.setItem("lng", "104.605221");
+						return;
+					} else if(rs.position.lat != null && rs.position.lat != undefined) {
+						lat = localStorage.setItem("lat", rs.position.lat);
+						lng = localStorage.setItem("lng", rs.position.lng);
+					} else {
+						lat = localStorage.setItem("lat", "28.750334");
+						lng = localStorage.setItem("lng", "104.605221");
+					}
+				}
+				$('.JW').each(function() {
+					var lnglat = new AMap.LngLat(lng, lat); // a, b 为 用户定位获取得经度、维度  
+					var LONG = $(this).attr('LONG');
+					var Dismen = $(this).attr('Dismen');
+					var dis = lnglat.distance([LONG, Dismen]); // c, d为商铺提供的经纬度  
+
+					if(dis / 1000 > 1) {
+						var ddis = Math.round(parseFloat(dis / 1000) * 100) / 100;
+						dis = ddis + " km";
+					} else {
+						dis = parseInt(dis) + " m";
+					}
+
+					$(this).html(dis);
+				})
+			}
+
+			function endrIdSData(rs) {
+				var TData = eval("(" + rs + ")");
+				if(TData != "") {
+					shopindex++;
+					for(var i = 0; i < TData.length; i++) {
+						if(lng != null && lat != null && TData[i].LONG != "" && TData[i].Dismension != "") {
+
+							var lnglat = new AMap.LngLat(lng, lat); // a, b 为 用户定位获取得经度、维度  
+							var dis = lnglat.distance([TData[i].LONG, TData[i].Dismension]); // c, d为商铺提供的经纬度  
+
+							if(dis / 1000 > 1) {
+								var ddis = Math.round(parseFloat(dis / 1000) * 100) / 100;
+								dis = ddis + " km";
+							} else {
+								dis = parseInt(dis) + " m";
+							}
+						} else { //若没有获取 用户的经纬度。
+							getPosition();
+						}
+						var ahtml = '<div class="head-center01"><a href="shopText.html?id=' + TData[i].Id + '">';
+						var imgA = httppp + '/Images/ExpertImg/admin/CompanyImg/' + TData[i].ImgsID + '_80x80.jpg';
+						ahtml += '<div class="pic-in"><img class="pic-in-1" src="' + imgA + '" /></div>';
+						ahtml += '<div class="text_box"><div class="text_box_dec"><span class="text_dec_top">' + TData[i].StopName + ' </span>';
+						ahtml += '</div><div class="tex_boc_bot11"><div style="float: left;width: 75px;">';
+						ahtml += '<span style="color: red;font-size: 12px">' + TData[i].RJMoney + "元/人" + '</span></div><div style="float: left;">&nbsp;</div>';
+						ahtml += '<div style="float: left;width: 55px;"><span style="color: #9F9F9F;font-size:12px">' + TData[i].dz + " 赞" + '</span>';
+						ahtml += '</div></div><div class="tex_boc_bot1"><div style="float: left;width: 75px;">';
+						ahtml += '<span style="color: #9F9F9F;font-size: 12px">' + TData[i].sq + '</span></div><div style="float: left;">&nbsp;</div>';
+						ahtml += '<div style="float: left;width: 55px;"><span class= "JW" LONG=" ' + TData[i].LONG + '"  Dismen =" ' + TData[i].Dismension + '"   style="color: #9F9F9F;font-size:12px">' + dis + '</span></div></div>';
+						var activemore, aa;
+						if(TData[i].ISZK == 1) { //存在折扣活动
+							//	var moneyZ = TData[i].zhekou * 10;
+							//	var moneyK = `${moneyZ}折`;
+							var activemore = 1;
+							//	var aa = `${activemore} 个活动 `;
+							ahtml += '<div class="dazhe"><b>折</b></div><div class="dazhe2">商品限时折扣</div>'; //<span id="jize" style="color: red;">' + moneyK + '</span>
+							ahtml += '<span class="huodong"><span style="color: red;">' + activemore + '</span>' + " 个活动" + '</span>';
+						} else {
+							var activemore = 1;
+							var aa = "暂无活动";
+							ahtml += '<div class="dazhe"><b>折</b></div><div class="dazhe2"><span id="jize">本店暂无折扣</span></div>';
+							ahtml += '<span class="huodong">' + aa + '</span>';
+						}
+						ahtml += '</div></div><hr class="xian1" />';
+						document.getElementById("shoppingS").innerHTML += ahtml;
+
+					}
+				} else {
+					var bh = '<div  id="nosee" style = "margin-top:30px;text-align:center;color:#808080;">没有找到您要找的店铺~ 请重新输入查找！</div>';
+					document.getElementById("shoppingS").innerHTML += bh;
+
+				}
+			}
+
+			function endrIdData(rs) {
+				var TData = eval("(" + rs + ")");
+				if(TData != "") {
+					shopindex++;
+					for(var i = 0; i < TData.length; i++) {
+						if(lng != null && lat != null && TData[i].LONG != "" && TData[i].Dismension != "") {
+
+							var lnglat = new AMap.LngLat(lng, lat); // a, b 为 用户定位获取得经度、维度  
+							var dis = lnglat.distance([TData[i].LONG, TData[i].Dismension]); // c, d为商铺提供的经纬度  
+
+							if(dis / 1000 > 1) {
+								var ddis = Math.round(parseFloat(dis / 1000) * 100) / 100;
+								dis = ddis + " km";
+							} else {
+								dis = parseInt(dis) + " m";
+							}
+						} else { //若没有获取 用户的经纬度。
+							getPosition();
+						}
+						var ahtml = '<div class="head-center01"><a href="shopText.html?id=' + TData[i].Id + '">';
+						var imgA = httppp + '/Images/ExpertImg/admin/CompanyImg/' + TData[i].ImgsID + '_80x80.jpg';
+						ahtml += '<div class="pic-in"><img class="pic-in-1" src="' + imgA + '" /></div>';
+						ahtml += '<div class="text_box"><div class="text_box_dec"><span class="text_dec_top">' + TData[i].StopName + ' </span>';
+						ahtml += '</div><div class="tex_boc_bot11"><div style="float: left;width: 75px;">';
+						ahtml += '<span style="color: red;font-size: 12px">' + TData[i].RJMoney + "元/人" + '</span></div><div style="float: left;">&nbsp;</div>';
+						ahtml += '<div style="float: left;width: 55px;"><span style="color: #9F9F9F;font-size:12px">' + TData[i].dz + " 赞" + '</span>';
+						ahtml += '</div></div><div class="tex_boc_bot1"><div style="float: left;width: 75px;">';
+						ahtml += '<span style="color: #9F9F9F;font-size: 12px">' + TData[i].sq + '</span></div><div style="float: left;">&nbsp;</div>';
+						ahtml += '<div style="float: left;width: 55px;"><span class= "JW" LONG=" ' + TData[i].LONG + '"  Dismen =" ' + TData[i].Dismension + '"   style="color: #9F9F9F;font-size:12px">' + dis + '</span></div></div>';
+						var activemore, aa;
+						if(TData[i].ISZK == 1) { //存在折扣活动
+							//	var moneyZ = TData[i].zhekou * 10;
+							//	var moneyK = `${moneyZ}折`;
+							var activemore = 1;
+							//	var aa = `${activemore} 个活动 `;
+							ahtml += '<div class="dazhe"><b>折</b></div><div class="dazhe2">商品限时折扣</div>'; //<span id="jize" style="color: red;">' + moneyK + '</span>
+							ahtml += '<span class="huodong"><span style="color: red;">' + activemore + '</span>' + " 个活动" + '</span>';
+						} else {
+							var activemore = 1;
+							var aa = "暂无活动";
+							ahtml += '<div class="dazhe"><b>折</b></div><div class="dazhe2"><span id="jize">本店暂无折扣</span></div>';
+							ahtml += '<span class="huodong">' + aa + '</span>';
+						}
+						ahtml += '</div></div><hr class="xian1" />';
+						document.getElementById("shopping").innerHTML += ahtml;
+
+					}
+				} else {
+					var bh = '<div  id="nosee" style = "margin-top:30px;text-align:center;color:#808080;">没有找到您要找的店铺~ 请重新输入查找！</div>';
+					document.getElementById("shopping").innerHTML += bh;
+
+				}
+			}
+
+			function endData(rs) {
+				var TData = eval("(" + rs + ")");
+				console.log(TData);
+				if(TData != "") {
+					shopindex++;
+					for(var i = 0; i < TData.length; i++) {
+						//商圈标签加载
+						var bhtml = '<div class="biaoqian1">' + TData[i].sq + '</div>';
+						var B1 = $(".biaoqian1").eq(i).text();
+						document.getElementById("shangQ").innerHTML += bhtml;
+						getdo();
+					}
+				}
+			}
+
+			function endPUserIdData(rs) {
+				var TData = eval("(" + rs + ")");
+				console.log(TData);
+				if(TData != "") {
+					shopindex++;
+					for(var i = 0; i < TData.length; i++) {
+						if(lng != null && lat != null && TData[i].LONG != "" && TData[i].Dismension != "") {
+
+							var lnglat = new AMap.LngLat(lng, lat); // a, b 为 用户定位获取得经度、维度  
+							var dis = lnglat.distance([TData[i].LONG, TData[i].Dismension]); // c, d为商铺提供的经纬度  
+
+							if(dis / 1000 > 1) {
+								var ddis = Math.round(parseFloat(dis / 1000) * 100) / 100;
+								dis = ddis + " km";
+							} else {
+								dis = parseInt(dis) + " m";
+							}
+						} else { //若没有获取 用户的经纬度。
+							getPosition();
+						}
+
+						var ahtml = '<div class="head-center01"><a href="shopText.html?id=' + TData[i].Id + '">';
+						var imgA = httppp + '/Images/ExpertImg/admin/CompanyImg/' + TData[i].ImgsID + '_80x80.jpg';
+						ahtml += '<div class="pic-in"><img class="pic-in-1" src="' + imgA + '" /></div>';
+						ahtml += '<div class="text_box"><div class="text_box_dec"><span class="text_dec_top">' + TData[i].StopName + ' </span>';
+						ahtml += '</div><div class="tex_boc_bot11"><div style="float: left;width: 75px;">';
+						ahtml += '<span style="color: red;font-size: 12px">' + TData[i].RJMoney + "元/人" + '</span></div><div style="float: left;">&nbsp;</div>';
+						ahtml += '<div style="float: left;width: 55px;"><span style="color: #9F9F9F;font-size:12px">' + TData[i].dz + " 赞" + '</span>';
+						ahtml += '</div></div><div class="tex_boc_bot1"><div style="float: left;width: 75px;">';
+						ahtml += '<span style="color: #9F9F9F;font-size: 12px">' + TData[i].sq + '</span></div><div style="float: left;">&nbsp;</div>';
+						ahtml += '<div style="float: left;width: 55px;"><span class= "JW" LONG=" ' + TData[i].LONG + '"  Dismen =" ' + TData[i].Dismension + '"   style="color: #9F9F9F;font-size:12px">' + dis + '</span></div></div>';
+						var activemore, aa;
+
+						if(TData[i].ISZK == 1) { //存在折扣活动
+							//	var moneyZ = TData[i].zhekou * 10;
+							//	var moneyK = `${moneyZ}折`;
+							var activemore = 1;
+							//	var aa = `${activemore} 个活动 `;
+							ahtml += '<div class="dazhe"><b>折</b></div><div class="dazhe2">商品限时折扣</div>'; //<span id="jize" style="color: red;">' + moneyK + '</span>
+							ahtml += '<span class="huodong"><span style="color: red;">' + activemore + '</span>' + " 个活动" + '</span>';
+						} else {
+							var activemore = 1;
+							var aa = "暂无活动";
+							ahtml += '<div class="dazhe"><b>折</b></div><div class="dazhe2"><span id="jize">本店暂无折扣</span></div>';
+							ahtml += '<span class="huodong">' + aa + '</span>';
+						}
+
+						ahtml += '</div></div><hr class="xian1" />';
+						document.getElementById("shopping").innerHTML += ahtml;
+						//商圈标签加载
+
+						var bhtml = '<div class="biaoqian1">' + TData[i].sq + '</div>';
+						var B1 = $(".biaoqian1").eq(i).text();
+
+						document.getElementById("shangQ").innerHTML += bhtml;
+						getdo();
+					}
+				}
+			}
+
+			function endPCUserIdData(rs) {
+				var TData = eval("(" + rs + ")");
+				console.log(TData);
+				if(TData != "") {
+					shopindex++;
+					for(var i = 0; i < TData.length; i++) {
+						if(lng != null && lat != null && TData[i].LONG != "" && TData[i].Dismension != "") {
+
+							var lnglat = new AMap.LngLat(lng, lat); // a, b 为 用户定位获取得经度、维度  
+							var dis = lnglat.distance([TData[i].LONG, TData[i].Dismension]); // c, d为商铺提供的经纬度  
+
+							if(dis / 1000 > 1) {
+								var ddis = Math.round(parseFloat(dis / 1000) * 100) / 100;
+								dis = ddis + " km";
+							} else {
+								dis = parseInt(dis) + " m";
+							}
+						} else { //若没有获取 用户的经纬度。
+							getPosition();
+						}
+
+						var ahtml = '<div class="head-center01"><a href="shopText.html?id=' + TData[i].Id + '">';
+						var imgA = httppp + '/Images/ExpertImg/admin/CompanyImg/' + TData[i].ImgsID + '_80x80.jpg';
+						ahtml += '<div class="pic-in"><img class="pic-in-1" src="' + imgA + '" /></div>';
+						ahtml += '<div class="text_box"><div class="text_box_dec"><span class="text_dec_top">' + TData[i].StopName + ' </span>';
+						ahtml += '</div><div class="tex_boc_bot11"><div style="float: left;width: 75px;">';
+						ahtml += '<span style="color: red;font-size: 12px">' + TData[i].RJMoney + "元/人" + '</span></div><div style="float: left;">&nbsp;</div>';
+						ahtml += '<div style="float: left;width: 55px;"><span style="color: #9F9F9F;font-size:12px">' + TData[i].dz + " 赞" + '</span>';
+						ahtml += '</div></div><div class="tex_boc_bot1"><div style="float: left;width: 75px;">';
+						ahtml += '<span style="color: #9F9F9F;font-size: 12px">' + TData[i].sq + '</span></div><div style="float: left;">&nbsp;</div>';
+						ahtml += '<div style="float: left;width: 55px;"><span class= "JW" LONG=" ' + TData[i].LONG + '"  Dismen =" ' + TData[i].Dismension + '"   style="color: #9F9F9F;font-size:12px">' + dis + '</span></div></div>';
+						var activemore, aa;
+						if(TData[i].ISZK == 1) { //存在折扣活动
+							//	var moneyZ = TData[i].zhekou * 10;
+							//	var moneyK = `${moneyZ}折`;
+							var activemore = 1;
+							//	var aa = `${activemore} 个活动 `;
+							ahtml += '<div class="dazhe"><b>折</b></div><div class="dazhe2">商品限时折扣</div>'; //<span id="jize" style="color: red;">' + moneyK + '</span>
+							ahtml += '<span class="huodong"><span style="color: red;">' + activemore + '</span>' + " 个活动" + '</span>';
+						} else {
+							var activemore = 1;
+							var aa = "暂无活动";
+							ahtml += '<div class="dazhe"><b>折</b></div><div class="dazhe2"><span id="jize">本店暂无折扣</span></div>';
+							ahtml += '<span class="huodong">' + aa + '</span>';
+						}
+						ahtml += '</div></div><hr class="xian1" />';
+						document.getElementById("shopping").innerHTML += ahtml;
+						//商圈标签加载
+
+						//						var bhtml = '<div class="biaoqian1">' + TData[i].sq + '</div>';
+						//						var B1 = $(".biaoqian1").eq(i).text();
+						//
+						//						document.getElementById("shangQ").innerHTML += bhtml;
+						//						getdo();
+					}
+				}
+			}
+
+			function getdo() {
+				//点击商圈
+				$(".biaoqian1").click(function() {
+					$(".biaoqian1").removeClass('biaoqian2');
+					$(this).addClass("biaoqian2");
+					shopindex = 0;
+				});
+			}
+			//点击确定
+			$(".zezaoText-footer-left").eq(1).click(function() {
+				var Sj = $(".biaoqian2").eq(0).text();
+				//				alert(Sj);
+				if(Sj == "全部") {
+					Sj = document.getElementsByClassName("biaoqian3")[0].getAttribute("data");
+				}
+				var min = $(".biaoqian2").eq(1).attr('min');
+				var max = $(".biaoqian2").eq(1).attr('max');
+
+				p = {
+					Collection: [{
+							F: "RJMoney",
+							O: ">=",
+							P: "@@RJMoney",
+							V: min
+						}, {
+							F: "RJMoney",
+							O: "<=",
+							P: "@@RJMoney1",
+							V: max
+						},
+						{
+							F: "Sq",
+							O: "=",
+							P: "@@Sq",
+							V: Sj
+						}, {
+							F: "status",
+							O: "=",
+							P: "@@status",
+							V: 1
+						},
+					]
+				};
+
+				document.getElementById("shopping").innerHTML = "";
+				shopindex = 0;
+				GetShop(p, "Stop", "endrIdData");
+				$("#Szezao").toggle();
+			});
+
+			function GetShop(f, n, e) {
+				var ar = new Array();
+				var ph = f;
+				ar.Condition = ph;
+				ar.InterfaceAddress = "api/ShopInfo"; //查询接口通用一致
+				ar.name = n; //店铺表名
+				// ar.name = "Stop"; //店铺表名
+				ar.OrderBy = "dz desc, CreationDate desc";
+				ar.Index = shopindex;
+				ar.Size = 30;
+				ar.Handshake_Time = CurentTime('-', true);
+				aes(ar, e);
+			}
+
+			function Getzhuanqu(f, n, e) {
+				var ar = new Array();
+				var ph = f;
+				ar.Condition = ph;
+				ar.InterfaceAddress = "api/ShopInfo"; //查询接口通用一致
+				ar.name = n; //店铺表名
+				// ar.name = "Stop"; //店铺表名
+				ar.OrderBy = "CreationDate desc";
+				ar.Index = shopindex;
+				ar.Size = 30;
+				ar.Handshake_Time = CurentTime('-', true);
+				aes(ar, e);
+			}
+
+			function endUserIdData(rs) {
+				var TData = eval("(" + rs + ")");
+				//				debugger;
+				if(TData != "") {
+					shopindex++;
+					for(var i = 0; i < TData.length; i++) {
+
+						var dhtml = '<div class="ZC-fenlei" style="padding: 5px;color: #5f5f5f;padding-left: 10px;">' + TData[i].TypeName + '</div>';
+						document.getElementById("zhuanQ").innerHTML += dhtml;
+						//点击专区分类
+						$(".ZC-fenlei").click(function() {
+							$(this).addClass("ZC-fenlei1").siblings().removeClass('ZC-fenlei1');
+							zqText = $(this).text();
+							if(zqText == "全部") {
+
+								f = {
+									Collection: [{
+										F: "status",
+										O: "=",
+										P: "@@status",
+										V: 1
+									}, ]
+								};
+							} else
+								f = {
+									Collection: [{
+										F: "Tyoe",
+										O: "=",
+										P: "@@Tyoe",
+										V: zqText
+									}, {
+										F: "status",
+										O: "=",
+										P: "@@status",
+										V: 1
+									}, ]
+								};
+							document.getElementById("shopping").innerHTML = "";
+							shopindex = 0;
+							GetShop(f, "Stop", "endrIdData");
+
+							setTimeout(function() {
+								$("#zezao").toggle();
+							}, 90);
+
+						});
+					}
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

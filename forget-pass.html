@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>忘记密码</title>
+		<!--<link rel="stylesheet" href="css/mui.min.css" />-->
+		<!--<script src="js/mui.min.js"></script>-->
+		<script src="//at.alicdn.com/t/font_xmirwjozzyr5dn29.js"></script>
+		<style>
+			body,
+			p,
+			input,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			ul,
+			li,
+			dl,
+			dt,
+			dd,
+			form {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				vertical-align: middle;
+				font-weight: normal;
+			}
+			
+			a {
+				cursor: pointer;
+				text-decoration: none;
+			}
+			
+			html,
+			body {
+				/*height: 100%;*/
+				width: 100%;
+				font-family: "微软雅黑";
+				background: white;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.icon {
+				/*margin: 0 auto;*/
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+				color: #DDDDDD;
+			}
+			
+			img {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.header {
+				height: auto;
+				width: 100%;
+			}
+			
+			.text-phone {
+				/*text-align: center;*/
+				width: 60%;
+				height: 25px;
+				overflow: hidden;
+				font-size: 16px;
+				margin-left: 10px;
+			}
+			
+			input {
+				outline: medium;
+				border: none;
+			}
+			
+			.iconinput {
+				padding-top: 70px;
+				margin: 0 15%;
+				width: 70%;
+			}
+			
+			.iconinput2 {
+				padding-top: 20px;
+				margin: 0 15%;
+				width: 70%;
+			}
+			
+			.xian {
+				margin-top: 10px;
+				margin-left: 15%;
+				width: 70%;
+				border: none;
+				height: 1px;
+				border-top: 1px solid #DDDDDD;
+			}
+			
+			#biyan {
+				float: left;
+				font-size: 25px;
+				float: right;
+				position: relative;
+				/*bottom: 25px;*/
+			}
+			
+			#kaiyan {
+				float: left;
+				font-size: 25px;
+				float: right;
+				position: relative;
+				display: none;
+			}
+			
+			#yanzheng {
+				width: 80px;
+				border: 1px solid #1296DB;
+				border-bottom: none;
+				border-top: none;
+				border-left: none;
+				padding-right: 5px;
+			}
+			
+			.footerb {
+				font-size: 20px;
+				color: whitesmoke;
+				width: 70%;
+				margin: 50px auto;
+				margin-bottom: 0;
+				text-align: center;
+				border-radius: 40px;
+				background: #1296db;
+				padding: 10px;
+			}
+			
+			.header-title {
+				height: 50px;
+				line-height: 50px;
+				border-bottom: 1px solid #DDDDDD;
+				position: fixed;
+				top: 0;
+				z-index: 9;
+				width: 100%;
+				background: white;
+				text-align: center;
+			}
+			
+			.header-left {
+				z-index: 99;
+				position: fixed;
+				top: 5px;
+				float: left;
+			}
+			
+			.header-center {
+				font-size: 20px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="header-title">
+			<div class="header-left">
+
+				<a href="javascript:window.history.back();">
+					<svg class="icon" aria-hidden="true" style="font-size: 30px;margin-left: 0; color: black;">
+						<use xlink:href="#icon-houtui"></use>
+					</svg>
+				</a>
+			</div>
+			<div class="header-center">
+				<span>忘记密码</span>
+			</div>
+
+		</div>
+
+		<div class="header" style="margin-top: 50px;">
+			<div class="iconinput">
+				<svg class="icon" aria-hidden="true" style="float: left; font-size: 23px;">
+					<use xlink:href="#icon-icon-copy-copy"></use>
+				</svg>
+				<input class="text-phone" id="phone" type="text" placeholder="请输入手机号" />
+
+			</div>
+			<hr class="xian" />
+
+		</div>
+
+		<div class="header">
+			<div class="iconinput2">
+				<svg class="icon" aria-hidden="true" style="float: left; font-size: 23px;">
+					<use xlink:href="#icon-suo1-copy"></use>
+				</svg>
+				<input class="text-phone" id="mima" type="password" placeholder="请输入新密码" />
+				<svg class="icon" id="biyan" aria-hidden="true">
+					<use xlink:href="#icon-yincangmima"></use>
+				</svg>
+				<svg class="icon" id="kaiyan" aria-hidden="true">
+					<use xlink:href="#icon-mimaxianshi"></use>
+				</svg>
+
+			</div>
+			<hr class="xian" />
+
+		</div>
+		<div class="header">
+			<div class="iconinput2">
+				<svg class="icon" aria-hidden="true" style="float: left; font-size: 23px;">
+					<use xlink:href="#icon-yanzhengma"></use>
+				</svg>
+				<input class="text-phone" id="yanzheng" type="text" placeholder="请输入验证码" />
+				<input type="button" style="font-size: 16px;background: transparent;" value="发送验证码" id="getonce" onclick="javascript:settime(30);"></input>
+
+			</div>
+			<hr class="xian" />
+
+		</div>
+		<a>
+			<div class="footerb" onclick="sub();">
+				<span>确 认</span>
+			</div>
+		</a>
+		<!--<div style="text-align: center;margin-top: 10px;">
+			<span style="color: #797979;">注册表示同意<span style="color: orange;">《吃货嘴注册协议》 </span></span>
+		</div>-->
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/MD5S.js"></script>
+	<script src="js/TravelTailorSafeInterface.js?1"></script>
+	<script>
+		// 密码效果
+		$("#biyan").click(function() {
+			$("#biyan").toggle();
+			$("#kaiyan").toggle();
+			$("#mima").attr("type", "text");
+
+		})
+		$("#kaiyan").click(function() {
+			$("#biyan").toggle();
+			$("#kaiyan").toggle();
+			$("#mima").attr("type", "password");
+
+		})
+
+		var phone = "";
+		// 发送验证码效果 t = 30;
+		function settime(t) {
+			phone = $("#phone").val();
+			var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+			if(myreg.test(phone)) {
+				document.getElementById("getonce").disabled = true;
+				for(i = 1; i <= t; i++) {
+					if(i == 1) {
+						sendMessage();
+					}
+					window.setTimeout("update_p(" + i + "," + t + ")", i * 1000);
+				}
+			} else {
+				alert('请输入有效的手机号码！');
+				return false;
+			}
+		}
+
+		function update_p(num, t) {
+			if(num == t) {
+				document.getElementById("getonce").value = "重新发送 ";
+				document.getElementById("getonce").disabled = false;
+			} else {
+				printnr = t - num;
+				document.getElementById("getonce").value = "(" + printnr + ")重新发送";
+			}
+		}
+
+		function sendMessage() {
+			phone = $("#phone").val();
+			var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+			if(myreg.test(phone)) {
+				var ar = new Array();
+				ar.InterfaceAddress = "api/Message";
+				ar.messageData = 0;
+				ar.phoneNum = phone;
+				ar.Handshake_Time = CurentTime('-', true);
+				aes(ar, "endMessage");
+			} else {
+				mui.alert('请输入有效的手机号码！', "黑卡生活");
+
+				return false;
+			}
+		}
+
+		function endMessage(rs) {
+			localStorage.setItem("phonevaliede", rs);
+		}
+
+		function sub() {
+//			alert(1);
+			if(document.getElementById("yanzheng").value === localStorage.getItem("phonevaliede")) {
+//				alert(2);
+				var ar = new Array();
+				ar.InterfaceAddress = "api/AddUserInfo";
+				ar.phone = $("#phone").val();
+				ar.password = document.getElementById("mima").value;
+				ar.address = "";
+				//				ar.realName = document.getElementById("nc").value;
+				ar.ICard = "";
+				//				localStorage.setItem("Idcard", $('#input-IDcard').val());
+				ar.sex = true;
+				ar.BankIcard = "";
+				var re = "";
+				ar.remark = re;
+				// ar.appid=plus.device.uuid;
+				ar.Handshake_Time = CurentTime('-', true);
+				aes(ar, "endRegision");
+			} else {
+				alert("验证码输入不正确！请重新获取")
+			}
+		}
+
+		function endRegision(rs) {
+			var verData = eval('(' + rs + ')');
+			console.log(verData);
+			debugger;
+			//			mui.alert(verData.msg, "吃货嘴APP");
+			mui.back();
+			mui.openWindow({
+				url: "login.html", //判断点击了那个对应给上一个值 在下级页面获取出来的时候判断执行对应的操作。
+				id: "login",
+				show: {
+					autoShow: true, //页面loaded事件发生后自动显示，默认为true
+
+				},
+				waiting: {
+
+				}
+			})
+
+		}
+	</script>
+
+</html>

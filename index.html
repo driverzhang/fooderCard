@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>吃货嘴</title>
+    <script src="js/TouchSlide.1.1.js" type="text/javascript" charset="utf-8"></script>
+    <!--<link rel="stylesheet" type="text/css" href="css/iconfont.css">-->
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_363158_h4828kf9mrevcxr.css">
+</head>
+<style>
+    body,
+    p,
+    input,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    li,
+    dl,
+    dt,
+    dd,
+    form {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        vertical-align: middle;
+        font-weight: normal;
+        /*width: 100%;*/
+    }
+
+    * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    a:link,
+    a:visited {
+        color: #444;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    a:hover {
+        background: none;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        font-family: "微软雅黑";
+        background: white;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .focus {
+        width: 100%;
+        height: 200px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .focus .hd {
+            width: 100%;
+            height: 11px;
+            position: absolute;
+            z-index: 1;
+            bottom: 5px;
+            text-align: center;
+        }
+
+            .focus .hd ul {
+                display: inline-block;
+                height: 11px;
+                padding: 3px 5px;
+                background-color: transparent;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                font-size: 0;
+                vertical-align: top;
+            }
+
+                .focus .hd ul li {
+                    display: inline-block;
+                    width: 5px;
+                    height: 5px;
+                    -webkit-border-radius: 5px;
+                    -moz-border-radius: 5px;
+                    border-radius: 5px;
+                    background: #8C8C8C;
+                    margin: 0 5px;
+                    vertical-align: top;
+                    overflow: hidden;
+                }
+
+                .focus .hd ul .on {
+                    background: #FE6C9C;
+                }
+
+        .focus .bd {
+            position: relative;
+            z-index: 0;
+        }
+
+            .focus .bd li img {
+                width: 100%;
+                height: 100%;
+                background: url(img/loading.gif) center center no-repeat;
+            }
+
+            .focus .bd li a {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                /* 取消链接高亮 */
+            }
+
+    .biaoqain5-box {
+        float: left;
+        width: 12%;
+        margin-top: 5px;
+        margin-left: 4%;
+        margin-right: 4%;
+        /*height: 100%;*/
+    }
+
+    .tubiao {
+        width: 100%;
+        height: auto;
+        /*margin-top: 10px;*/
+    }
+
+    .text-icon {
+        width: 100%;
+        height: 20px;
+    }
+
+    .text-icon-in {
+        text-align: center;
+        color: #5d5d5d;
+        font-size: 12px;
+        width: 20%;
+        float: left;
+    }
+
+    .xian {
+        width: 100%;
+        margin-top: 5px;
+        border: none;
+        height: 1px;
+        border-top: 1px solid #DDDDDD;
+    }
+
+    .tongcheng-pic {
+        float: left;
+        margin-top: 10px;
+        margin-left: 10px;
+        height: 40px;
+        width: 60px;
+    }
+
+    p {
+        color: #9f9f9f;
+        font-size: 12px;
+    }
+
+    .ziti-text {
+        float: left;
+        margin-top: 10px;
+        /*margin-left: 10px;*/
+    }
+
+    .header-title {
+        height: 50px;
+        line-height: 50px;
+        border-bottom: solid 1px #bebbbb;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+        background: white;
+    }
+
+    .activityDetail {
+        background: white;
+    }
+
+    .joyActiviyty {
+        width: 94%;
+        margin: 0px 3%;
+        height: 160px;
+    }
+
+    .footer {
+        margin: 0 auto;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        border-top: solid 1px #d8d8d8;
+        z-index: 999;
+        background: white;
+    }
+
+    .footer-down {
+        float: left;
+        width: 25%;
+        text-align: center;
+        margin-top: 5px;
+        height: 100%;
+    }
+
+    .zi {
+        line-height: 0.88;
+    }
+
+    .text-down {
+        font-size: 14px;
+    }
+
+    #shouye {
+        color: #f6942a;
+    }
+
+    .Active-bank {
+        width: 50px;
+        height: 20px;
+        margin-left: 3%;
+        position: relative;
+        top: 14px;
+    }
+
+    .fruit {
+        width: 65px;
+        height: 20px;
+        background: -webkit-linear-gradient(right, #7FFFD4, #43CD80);
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right, #7FFFD4, #43CD80);
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right, #7FFFD4, #43CD80);
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #2ee8b9, #43CD80);
+        /* 标准的语法（必须放在最后） */
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+        left: 3%;
+        top: 15px;
+    }
+
+    .food {
+        width: 65px;
+        height: 20px;
+        background: -webkit-linear-gradient(right, #fed60d, #fdbd02);
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right, #fed60d, #fdbd02);
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right, #fed60d, #fdbd02);
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #fed60d, #fdbd02);
+        /* 标准的语法（必须放在最后） */
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+        left: 3%;
+        top: 15px;
+    }
+
+    .fun {
+        width: 65px;
+        height: 20px;
+        background: -webkit-linear-gradient(right, #d767ff, #9f45ff);
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right, #d767ff, #9f45ff);
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right, #d767ff, #9f45ff);
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #d767ff, #9f45ff);
+        /* 标准的语法（必须放在最后） */
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+        left: 3%;
+        top: 15px;
+    }
+
+    .more {
+        width: 65px;
+        height: 20px;
+        background: -webkit-linear-gradient(right, #FF4500, #CD0000);
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right, #FF4500, #CD0000);
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right, #FF4500, #CD0000);
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #FF4500, #CD0000);
+        /* 标准的语法（必须放在最后） */
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+        left: 3%;
+        top: 15px;
+    }
+
+    .textBank {
+        text-align: left;
+        font-size: 12px;
+        position: relative;
+        z-index: 999;
+        left: 4.5%;
+        top: 34px;
+        color: white;
+        width: 95.5%;
+    }
+
+    #active {
+        width: 100%;
+        height: 100%;
+    }
+
+    .head-search-left {
+        float: left;
+        width: 80%;
+        margin-left: 2%;
+        margin-top: 10px;
+    }
+
+    .head-search-rgiht {
+        float: right;
+        margin-top: 10px;
+        line-height: 30px;
+        width: 18%;
+        text-align: center;
+        color: #444444;
+    }
+
+    #search-text {
+        float: left;
+        height: 30px;
+        width: 100%;
+        /*margin-left: 3%;*/
+        font-size: 14px;
+        text-align: center;
+        background: #EFEFF4;
+        border: none;
+        outline: none;
+    }
+
+    .head-center01 {
+        padding: 11px 0;
+        margin-left: 12px;
+        position: relative;
+    }
+
+    .pic-in {
+        /*关键CSS用于关键定位点*/
+        float: left;
+        width: 35%;
+        padding-top: 30%;
+        position: relative;
+        display: block;
+    }
+
+    .pic-in-1 {
+        left: 0;
+        top: 0;
+        width: 100%;
+        position: absolute;
+        height: 100%;
+    }
+
+    .text_box {
+        /*关键CSS用于关键定位点*/
+        margin-left: 38.5%;
+        position: relative;
+        margin-right: 3.5%;
+        padding-top: 30%;
+        /*关键CSS用于关键定位点，可以控制div高度，与width定我百分或确定值时*/
+    }
+
+    .text_box_dec {
+        position: absolute;
+        top: 2px;
+    }
+
+    .tex_boc_bot1 {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .tex_boc_bot11 {
+        position: absolute;
+        bottom: 17px;
+    }
+
+    .text_dec_top {
+        font-size: 14px;
+        color: #5f5f5f;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
+
+    .xian1 {
+        width: 100%;
+        /*margin-top: 5px;*/
+        border: none;
+        height: 2px;
+        border-top: 2px solid #f3f4f5;
+    }
+
+    #search {
+        float: left;
+        margin-left: 10px;
+        font-size: 18px;
+        position: fixed;
+        z-index: 1111;
+    }
+
+    #Sys {
+        float: right;
+        font-size: 18px;
+        position: relative;
+        right: 10px;
+        z-index: 1111;
+    }
+    @media all and (min-width: 1060px) {
+        .focus {
+            width: 70%;
+            height: 280px;
+        }
+        .joyActiviyty {
+            height: 300px;
+        }
+        #active {
+            width: 70%;
+            margin: 0 auto;
+            height: 100%;
+        }
+    }
+
+    @media all and (max-width: 1060px) and (min-width: 768px){
+        .focus {
+            width: 80%;
+            height: 260px;
+        }
+        .joyActiviyty {
+            height: 250px;
+        }
+        #active {
+            width: 80%;
+            margin: 0 auto;
+            height: 100%;
+        }
+    }
+    @media all and (max-width: 767px) and (min-width: 480px) {
+        .focus{
+            width: 90%;
+            height: 240px;
+        }
+        .joyActiviyty {
+            height: 220px;
+        }
+        #active {
+            width: 90%;
+            margin: 0 auto;
+            height: 100%;
+        }
+    }
+</style>
+
+<body>
+    <section id="index">
+        <header>
+            <div class="header-title">
+                <i id="search" class="iconfont icon-sousuo"></i>
+                <!--<i id="Sys" class="iconfont icon-saoyisao2"></i>-->
+                <div class="headline" style="text-align: center; position: relative; width: 100%;">
+                    <div class="headTitle" style="font-size: 20px;">
+                        <i class="iconfont icon-chihuo" style="font-size: 22px;"></i>
+                        <span>吃货嘴</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--开始轮播部分-->
+        <div class="head-box" style="position: relative; top: 50px;">
+            <div id="focus" class="focus">
+                <!--图片下方的切换点-->
+                <div class="hd">
+                    <ul></ul>
+                </div>
+                <div class="bd">
+                    <ul>
+                        <!--图片地址-->
+                        <li>
+                            <a href="#">
+                                <img _src="img/banner02.png" src="img/blank.png" /></a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img _src="img/05.png" src="img/blank.png" /></a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img _src="img/07.png" src="img/blank.png" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--轮播结束 活动内容-->
+        <div class="activityDetail" style="margin-top: 58px; background: white; height: 100%;">
+            <div class="HotActivity" style="text-align: center; position: relative; top: 8px;">
+                <span class="Hot" style="font-size: 18px; font-weight: bold;">
+                    <span style="color: #d3d1d1;">——</span> <span style="color: #fcd55e;">·</span> 热门活动 <span style="color: orange;">· </span><span style="color: #d3d1d1;">——</span>
+                </span>
+                <div id="active"></div>
+            </div>
+            <div style="height: 80px; background: white;"></div>
+        </div>
+        <footer class="footer">
+            <a href="index.html">
+                <div id="shouye" class="footer-down">
+                    <i class="iconfont icon-shouye" style="font-size: 22px;"></i>
+                    <div class="zi"><span class="text-down">首页</span></div>
+                </div>
+            </a>
+            <a href="shopping.html">
+                <div id="shangjia" class="footer-down">
+                    <i class="iconfont icon-shangjia1" style="font-size: 22px;"></i>
+                    <div class="zi"><span class="text-down">商家</span></div>
+                </div>
+            </a>
+            <a href="boomshaklak.html">
+                <div id="chihuoka" class="footer-down">
+                    <i class="iconfont icon-qia" style="font-size: 22px;"></i>
+                    <div class="zi"><span class="text-down">吃货卡</span></div>
+                </div>
+            </a>
+            <a href="person.html">
+                <div id="my" class="footer-down">
+                    <i class="iconfont icon-xiaolian" style="font-size: 22px;"></i>
+                    <div class="zi"><span class="text-down">我的</span></div>
+                </div>
+            </a>
+            <div id="container" style="display: none;"></div>
+        </footer>
+    </section>
+    <section id="searchH" style="display: none;">
+        <header class="head-search">
+            <div class="head-search-left">
+                <i class="iconfont icon-sousuo" id="searchS" style="font-size: 17px; position: fixed; left: 7%; margin-top: 5px;"></i>
+                <i class="iconfont icon-quxiao" id="xiaoqu" onclick="qingkong()" style="font-size: 14px; position: absolute; left: 75%; color: #8F8F94; margin-top: 8px;"></i>
+                <input id="search-text" placeholder="请输入商铺名" />
+            </div>
+            <div class="head-search-rgiht" id="quxiao">
+                <span>取消</span>
+            </div>
+            <div id="shopping" style="padding-top: 40px;">
+            </div>
+        </header>
+        <div id="container" style="display: none;"></div>
+    </section>
+    <script type="text/javascript">
+        TouchSlide({
+            slideCell: "#focus",
+            titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层  导航元素对象，鼠标触发元素即原标图点等。
+            mainCell: ".bd ul", //要轮播的内容 图片
+            effect: "leftLoop", //轮播方向 向左循环滚动
+            autoPlay: true, //自动播放
+            autoPage: true, //自动分页
+            delayTime: 200, // 切换图片的延迟时间。 默认为200.
+            interTime: 2500, // 图片停留的时间，即各多少时间开始下一张图，默认为2500.
+            switchLoad: "_src" //切换加载，真实图片路径为"_src"
+        });
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mui.min.js"></script>
+    <script src="js/MD5S.js"></script>
+    <script src="js/TravelTailorSafeInterface.js?1"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=7eb4af60c3683b71c186b6abcdae7e3a&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
+    <script src="js/gclNewClub.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+        	setTimeout(function(){
+        		var userid = GetQueryString("userid");
+            var id=localStorage.getItem("Id");
+            if (userid != null) {
+                var ar = new Array();
+                ar.InterfaceAddress = "api/GetUser";
+                ar.userId = userid;
+                ar.Handshake_Time = CurentTime('-', true);
+                aes(ar, "endvalidata");
+            }
+            else if (id!=null){
+            	var ar = new Array();
+                ar.InterfaceAddress = "api/GetUser";
+                ar.userId = id;
+                ar.Handshake_Time = CurentTime('-', true);
+                aes(ar, "endvalidata");
+            }
+        	},200)
+            
+        })
+        function endvalidata(rs) {
+            var TData = eval("(" + rs + ")");
+
+            if (TData != "" && TData != undefined) {
+                localStorage.setItem("loginstate", "true");
+                localStorage.setItem("loginPhone", TData.ReturnData.UserPhone);
+                localStorage.setItem("loginPassword", TData.ReturnData.passWord);
+                localStorage.setItem("nc", TData.ReturnData.NC);
+                localStorage.setItem("Id", TData.ReturnData.Id);
+                localStorage.setItem("uidnew", TData.ReturnData.uid);
+                localStorage.setItem("ICCard", TData.ReturnData.ICCard);
+                localStorage.setItem("IcardInvalidData", TData.ReturnData.IcardInvalidData);
+                localStorage.setItem("face", TData.ReturnData.Head);
+            }
+        }
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return decodeURI(r[2]);
+            return null;
+        }
+        $("#search").click(function () {
+            $("#index").hide();
+            $("#searchH").show();
+        });
+
+        $("#searchS").click(function () {
+            inputText = $("#search-text").val();
+            ggdate();
+        });
+
+        $(document).keydown(function (event) {
+            if (event.keyCode == 13) { //键盘点确认	
+                inputText = $("#search-text").val();
+                ggdate();
+            }
+        });
+
+        $("#quxiao").click(function () {
+            $("#index").show();
+            $("#searchH").hide(function () {
+                document.getElementById("search-text").value = "";
+                $("#search-text").attr('placeholder', '请输入商铺名');
+                document.getElementById("shopping").innerHTML = "";
+            });
+        });
+
+        //扫一扫
+        //			$("#Sys").click(function() {
+        //				//				alert(1);
+        //				QFH5.jumpScan(function(state, data) { //JS发起的扫描全部回调，不自动打开
+        //					if(state == 1) {
+        //						//扫描成功
+        //						alert(data.content); //扫描内容
+        //					} else {
+        //						//扫描失败
+        //						alert(data.error); //错误信息
+        //					}
+        //				})
+        //			});
+
+        // 调用高德地图
+        setTimeout(function () {
+            gclmap.init(undefined, undefined, true, "mapback")
+        }, 200);
+
+        function mapback(rs) {
+            if (rs.position == undefined) {
+                localStorage.setItem("lat", "28.750334");
+                localStorage.setItem("lng", "104.605221");
+                return;
+            }
+            if (rs.position.lat != null && rs.position.lat != undefined) {
+                localStorage.setItem("lat", rs.position.lat);
+                localStorage.setItem("lng", rs.position.lng);
+            } else {
+                localStorage.setItem("lat", "28.750334");
+                localStorage.setItem("lng", "104.605221");
+                //					localStorage.setItem("lat", beginadd[5]);
+            }
+        }
+        mui.init({
+            swipeBack: true //启用右滑关闭功能
+        });
+        var lat = localStorage.getItem("lat");
+        var lng = localStorage.getItem("lng");
+        var beginGUSER = false;
+        var Isfirst = false;
+        var shopindex = 0;
+        var myphone,
+            username,
+            inputText,
+            face,
+            uid;
+
+        $("#search-text").focus(function () {
+            $("#search-text").attr("placeholder", "");
+        });
+
+        function qingkong() {
+            document.getElementById("search-text").value = "";
+            document.getElementById("shopping").innerHTML = "";
+        }
+
+        function ggdate() {
+            var p = {
+                Collection: [{
+                    F: "StopName",
+                    O: "%",
+                    P: "@@StopName",
+                    V: inputText
+                }, ]
+            };
+            document.getElementById("shopping").innerHTML = "";
+            shopindex = 0;
+            GetShop(p) //数据展示
+        }
+
+        function GetShop(f) {
+            //				debugger;
+            var ar = new Array();
+            var ph = f;
+            ar.Condition = ph;
+            ar.InterfaceAddress = "api/ShopInfo"; //查询接口通用一致
+            ar.name = "Stop";
+            ar.OrderBy = "CreationDate desc";
+            ar.Index = shopindex;
+            ar.Size = 30;
+            ar.Handshake_Time = CurentTime('-', true);
+            aes(ar, "endData");
+            //				debugger;
+        }
+
+        function endData(rs) {
+            //				debugger;
+            var TData = eval("(" + rs + ")");
+            //				console.log(TData);
+            if (TData != "") {
+                shopindex++;
+                for (var i = 0; i < TData.length; i++) {
+                    if (lng != null && lat != null && TData[i].LONG != "" && TData[i].Dismension != "") {
+                        var lnglat = new AMap.LngLat(lng, lat); // a, b 为 用户定位获取得经度、维度  
+                        var dis = lnglat.distance([TData[i].LONG, TData[i].Dismension]); // c, d为商铺提供的经纬度  
+
+                        if (dis / 1000 > 1) {
+                            var ddis = Math.round(parseFloat(dis / 1000) * 100) / 100;
+                            dis = ddis + " km";
+                        } else {
+                            dis = parseInt(dis) + " m";
+                        }
+                    } else { //若没有获取 用户的经纬度。
+                        getPosition();
+                    }
+                    var ahtml = '<div class="head-center01"><a href="shopText.html?id=' + TData[i].Id + '">';
+                    var imgA = httppp + '/Images/ExpertImg/admin/CompanyImg/' + TData[i].ImgsID + '_80x80.jpg';
+                    ahtml += '<div class="pic-in"><img class="pic-in-1" src="' + imgA + '" /></div>';
+                    ahtml += '<div class="text_box"><div class="text_box_dec"><span class="text_dec_top">' + TData[i].StopName + ' </span>';
+                    ahtml += '</div><div class="tex_boc_bot11"><div style="float: left;width: 75px;">';
+                    ahtml += '<span style="color: #9F9F9F;font-size: 12px">' + TData[i].RJMoney + "元/人" + '</span></div><div style="float: left;">&nbsp;</div>';
+                    ahtml += '<div style="float: left;width: 55px;"><span style="color: #9F9F9F;font-size:12px">' + TData[i].dz + " 赞" + '</span>';
+                    ahtml += '</div></div><div class="tex_boc_bot1"><div style="float: left;width: 75px;">';
+                    ahtml += '<span style="color: #9F9F9F;font-size: 12px">' + TData[i].sq + '</span></div><div style="float: left;">&nbsp;</div>';
+                    ahtml += '<div style="float: left;width: 55px;"><span class= "JW" LONG=" ' + TData[i].LONG + '"  Dismen =" ' + TData[i].Dismension + '"   style="color: #9F9F9F;font-size:12px">' + dis + '</span>';
+                    ahtml += '</div></div></div></div><hr class="xian1" />';
+                    document.getElementById("shopping").innerHTML += ahtml;
+
+                }
+            } else {
+                var bh = '<div  id="nosee" style = "margin-top:30px;text-align:center;color:#808080;">没有找到您要找的店铺~ 请重新输入查找！</div>';
+                document.getElementById("shopping").innerHTML += bh;
+
+            }
+        }
+
+        //若没有获取 用户的经纬度。
+        function getPosition() {
+            setTimeout(function () {
+                gclmap.init(undefined, undefined, true, "mapback")
+            }, 200);
+
+            function mapback(rs) {
+                if (rs.position == undefined) {
+                    lat = localStorage.setItem("lat", "28.750334");
+                    lng = localStorage.setItem("lng", "104.605221");
+                    return;
+                } else if (rs.position.lat != null && rs.position.lat != undefined) {
+                    lat = localStorage.setItem("lat", rs.position.lat);
+                    lng = localStorage.setItem("lng", rs.position.lng);
+                } else {
+                    lat = localStorage.setItem("lat", "28.750334");
+                    lng = localStorage.setItem("lng", "104.605221");
+                }
+            }
+            $('.JW').each(function () {
+                var lnglat = new AMap.LngLat(lng, lat); // a, b 为 用户定位获取得经度、维度  
+                var LONG = $(this).attr('LONG');
+                var Dismen = $(this).attr('Dismen');
+                var dis = lnglat.distance([LONG, Dismen]); // c, d为商铺提供的经纬度  
+
+                if (dis / 1000 > 1) {
+                    var ddis = Math.round(parseFloat(dis / 1000) * 100) / 100;
+                    dis = ddis + " km";
+                } else {
+                    dis = parseInt(dis) + " m";
+                }
+
+                $(this).html(dis);
+            })
+        }
+        //开始 接入千帆系统
+        function QFH5ready() {
+            //				alert("这是千帆");
+            if (!Isfirst) { //当 Isfirst 为false时 一定成立。   当 Isfalse 为 true 时 !Isfalse => false != true 
+                Isfirst = true; // Isfirst 变为 true;
+                QFH5.setShareInfo("大宜宾拼车", "http://dayibin.cn/data/attachment/forum/201607/22/164014jcqq4a64tqaq7bae.jpg",
+                    "快来吧,和我一起出发,跟着心情走,去哪都可以", "http://share.dayibin.cn/wap/download/index?type=0&id=",
+                    function (state, data) {
+                        if (state == 1) {
+                            alert("分享成功");
+                        } else {
+                            alert(data.error);
+                        }
+                    });
+                QFH5.getUserInfo(function (state, data) {
+
+                    if (state == 1) {
+                        if (!beginGUSER) {
+                            beginGUSER = true;
+                            uid = data.uid;
+                            localStorage.setItem("uid", uid);
+                            username = data.username;
+                            face = data.face;
+                            localStorage.setItem("face ", face);
+                            myphone = data.phone;
+                            var deviceid = data.deviceid;
+                            GetDate();
+                            if (myphone == "") {
+                                alert("请绑定手机号");
+                                QFH5.jumpProfile();
+                            }
+                        }
+                    } else {
+                        QFH5.jumpLogin(function (state, data) { })
+                    }
+                })
+            }
+        }
+        uid = localStorage.getItem("uid");
+        face = localStorage.getItem("face");
+        //			GetDate();
+
+        function GetDate() {
+            //				alert("开始注册");
+            var ar = new Array();
+            ar.InterfaceAddress = "api/AddUserInfo";
+            ar.phone = myphone;
+            //				ar.phone = "15808479224";
+            ar.password = "123456";
+            ar.address = "";
+            ar.realName = "";
+            ar.nc = username;
+            //				ar.nc = "明斯福";
+            ar.ICard = "";
+            ar.uidfrom = "dayibin";
+            var newuid = ar.uidfrom + uid;
+            //				var newuid = ar.uidfrom + "36758";
+            ar.uid = newuid;
+            ar.headsrc = face;
+            ar.sex = true;
+            ar.BankIcard = "";
+            var re = "";
+            ar.remark = re;
+            ar.Handshake_Time = CurentTime('-', true);
+            aes(ar, "endRegision");
+        }
+
+        function endRegision(rs) {
+            //				alert(rs);
+            var verData = eval('(' + rs + ')');
+            //				console.log(verData);
+            if (verData == undefined) {
+                alert(rs);
+            } else if (verData.suc) {
+                localStorage.setItem("loginstate", "true");
+                localStorage.setItem("loginPhone", verData.ReturnData.UserPhone);
+                localStorage.setItem("loginPassword", verData.ReturnData.passWord);
+                localStorage.setItem("nc", verData.ReturnData.NC);
+                localStorage.setItem("Id", verData.ReturnData.Id);
+                localStorage.setItem("uidnew", verData.ReturnData.uid);
+                localStorage.setItem("ICCard", verData.ReturnData.ICCard);
+                localStorage.setItem("IcardInvalidData", verData.ReturnData.IcardInvalidData);
+                localStorage.setItem("face", face);
+            } else {
+                alert(verData.msg);
+            }
+        }
+
+        setTimeout(function () {
+            var ar = new Array();
+            var ph = {
+                Collection: [{
+                    F: "TypeBTName",
+                    O: "=",
+                    P: "@@TypeBTName",
+                    V: "热门活动"
+                }, ]
+            };
+            ar.Condition = ph;
+            ar.InterfaceAddress = "api/ShopInfo"; //查询接口通用一致
+            ar.name = "TYPEVIEW";
+            ar.OrderBy = "CreationDate desc";
+            ar.Index = shopindex;
+            ar.Size = 20;
+            ar.Handshake_Time = CurentTime('-', true);
+            aes(ar, "endPCUserIdData");
+        }, 50);
+
+        function endPCUserIdData(rs) {
+            var TData = eval("(" + rs + ")");
+            //				console.log(TData);
+            if (TData != "") {
+                shopindex++;
+                for (var i = 0; i < TData.length; i++) {
+                    var ahtml = '<div style="height: 100%;width:100%;background: white;"><a href="shopping.html?id=' + TData[i].Id + '&pd=' + TData[i].TypeName + '">';
+                    ahtml += '<div class="textBank"><span>' + TData[i].TypeName + '</span></div>';
+                    if (TData[i].TypeName == "水果专区") {
+                        ahtml += '<div class="fruit"></div>';
+                    } else if (TData[i].TypeName == "餐饮专区" || TData[i].TypeName == "火锅专区") {
+                        ahtml += '<div class="food"></div>';
+                    } else if (TData[i].TypeName == "玩乐专区") {
+                        ahtml += '<div class="fun"></div>';
+                    } else {
+                        ahtml += '<div class="more"></div>';
+                    }
+                    var imgA = httppp + '/Images/ExpertImg/admin/CompanyImg/' + TData[i].Id + '_650x320.jpg';
+                    ahtml += '<div class="joyActiviyty"><img src= "' + imgA + '" style= "width: 100%;height: 100%; border-radius: 3px;" />';
+                    ahtml += '</div></a></div>';
+                    document.getElementById("active").innerHTML += ahtml;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

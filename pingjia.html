@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>发表评价</title>
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+		<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
+		<link href="css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
+		<script src="//at.alicdn.com/t/font_363158_htq3ylaj2uwstt9.js"></script>
+		<style>
+			body,
+			p,
+			input,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			ul,
+			li,
+			dl,
+			dt,
+			dd,
+			form {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				vertical-align: middle;
+				font-weight: normal;
+			}
+			
+			a {
+				cursor: pointer;
+				text-decoration: none;
+			}
+			
+			html,
+			body {
+				/*height: 100%;*/
+				width: 100%;
+				font-family: "微软雅黑";
+				background: whitesmoke;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			* {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+			.icon {
+				/*margin: 0 auto;*/
+				width: 1em;
+				height: 1em;
+				/*vertical-align: -0.15em;*/
+				/*fill: currentColor;*/
+				overflow: hidden;
+				color: #DDDDDD;
+			}
+			
+			img {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.header-title {
+				height: 50px;
+				line-height: 50px;
+				border-bottom: 1px solid #DDDDDD;
+				position: fixed;
+				top: 0;
+				z-index: 9;
+				width: 100%;
+				background: white;
+				text-align: center;
+			}
+			
+			.header-left {
+				z-index: 99;
+				position: fixed;
+				top: 5px;
+				float: left;
+			}
+			
+			.header-center {
+				font-size: 20px;
+			}
+			
+			.xian1 {
+				width: 100%;
+				border: none;
+				height: 1px;
+				border-top: 1px solid whitesmoke;
+			}
+			
+			#dianzan {
+				text-align: center;
+				background: white;
+				padding: 10px;
+			}
+			
+			#text-T {
+				margin-top: 10px;
+				outline: none;
+				border: none;
+				font-size: 14px;
+				width: 100%;
+				height: 100px;
+				overflow: auto;
+				resize: none;
+			}
+			
+			.fabu {
+				text-align: center;
+				width: 20%;
+				margin-top: 5px;
+				position: absolute;
+				right: 5px;
+				height: 25px;
+				border: 1px solid #F6942A;
+				color: #F6942A;
+				border-radius: 5px;
+				background: white;
+				/*padding: 1px 1px;*/
+			}
+			
+			.rating {
+				display: table;
+				position: absolute;
+				left: 26%;
+				transform: translateY(50%);
+				/*text-align: center;*/
+			}
+			
+			.rating>label {
+				color: #ddd;
+				float: right;
+			}
+			
+			.rating>label:before {
+				padding: 5px;
+				font-size: 24px;
+				line-height: 1em;
+				display: inline-block;
+				content: "★";
+			}
+			
+			.rating>input:checked~label,
+			.rating:not(:checked)>label:hover,
+			.rating:not(:checked)>label:hover~label {
+				color: #F6942A;
+			}
+			
+			.rating>input:checked~label:hover,
+			.rating>label:hover~input:checked~label,
+			.rating>input:checked~label:hover~label {
+				opacity: 0.7;
+			}
+			
+			.head-B {
+				height: 80px;
+				background: white;
+				text-align: center;
+				padding: 15px;
+			}
+			
+			#imgPut {
+				width: 200px;
+				height: 60px;
+				float: left;
+				padding: 10px;
+				padding-left: 0;
+			}
+			
+			.imgPut-in {
+				float: left;
+				width: 60px;
+				height: 60px;
+				text-align: center;
+			}
+			
+			.label {
+				display: inline;
+				padding: .2em .6em .3em;
+				font-size: 75%;
+				font-weight: bold;
+				line-height: 1;
+				color: #fff;
+				text-align: center;
+				white-space: nowrap;
+				vertical-align: baseline;
+				border-radius: .25em;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<div class="header-title">
+			<div class="header-left">
+
+				<a href="javascript:window.history.back();">
+					<svg class="icon" aria-hidden="true" style="font-size: 30px;margin-left: 0; color: black;">
+						<use xlink:href="#icon-houtui"></use>
+					</svg>
+				</a>
+			</div>
+			<div class="header-center">
+				<span>发表评价</span>
+			</div>
+		</div>-->
+		<div class="head-B">
+			<div class="all-PJ" style="font-size: 16px;">总体评价</div>
+			<input id="rating-input" type="text" title="" />
+		</div>
+		<div id="dianzan">
+			<svg class="icon" status="0" id="dianzanW" aria-hidden="true" style="font-size: 35px;color: #F6942A;">
+				<use xlink:href="#icon-dianzan2"></use>
+			</svg>
+			<svg class="icon" status="1" id="dianzanY" aria-hidden="true" style="font-size: 35px; display: none;">
+				<use xlink:href="#icon-dianzanmw"></use>
+			</svg>
+		</div>
+		<div style="background: white;height: 180px;">
+			<div style="height: 100px;width: 94%;margin: 2px auto;">
+				<textarea id="text-T" placeholder="菜品口味如何，服务还满意吗，环境如何？说说它的优点和美中不足吧。"></textarea>
+			</div>
+			<div style="width: 80px;height: 80px; z-index: 999;position: absolute;padding: 10px;float: left;">
+				<input style="background: transparent;opacity: 0;height: 100%; width: 100%;" type="file" id="fileUpload1" name="fileTrans1" multiple="true" value="上传图片" />
+			</div>
+			<div id="img1" style="width: 80px;height: 80px;padding: 10px;float: left;">
+				<img src="img/19-1.png" style="width: 100%;height: 100%;" />
+			</div>
+			<div style="width: 80px;height: 80px; z-index: 999;position: fixed;padding: 10px;float: left;margin-left: 80px;">
+				<input style="background: transparent;opacity: 0;height: 100%; width: 100%;" type="file" id="fileUpload2" name="fileTrans" multiple="true" value="上传图片" />
+			</div>
+			<div id="img2" style="width: 80px;height: 80px;padding: 10px;float: left;">
+				<img src="img/19-1.png" style="width: 100%;height: 100%;" />
+			</div>
+			<div style="width: 80px;height: 80px; z-index: 999;position: fixed;padding: 10px;float: left;margin-left: 160px;">
+				<input style="background: transparent;opacity: 0;height: 100%; width: 100%;" type="file" id="fileUpload3" name="fileTrans" multiple="true" value="上传图片" />
+			</div>
+			<div id="img3" style="width: 80px;height: 80px;padding: 10px;float: left;">
+				<img src="img/19-1.png" style="width: 100%;height: 100%;" />
+			</div>
+
+			<!--<div id="imgPut">
+				<div class="imgPut-in">123</div>
+				<div class="imgPut-in">123</div>
+				<div class="imgPut-in">123</div>
+				
+			</div>-->
+		</div>
+		<div style="width: 100%;background: white;height: 40px">
+			<div class="fabu" id="getlist">确认</div>
+		</div>
+	</body>
+	<!--<script src="js/jquery.min.js"></script>-->
+	<script src="js/jquery-3.2.1.js"></script>
+	<script src="js/star-rating.min.js" type="text/javascript"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/MD5S.js"></script>
+	<script src="js/TravelTailorSafeInterface.js"></script>
+	<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=7eb4af60c3683b71c186b6abcdae7e3a&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
+	<script src="js/TouchSlide.1.1.js"></script>
+	<script src="js/gclNewClub.js"></script>
+	<script>
+		//获取 url 后的参数方法。
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) return unescape(r[2]);
+			return null;
+		}
+		var userID = localStorage.getItem("Id");
+		var nc = localStorage.getItem("nc");
+		var cc = GetQueryString("id"); //商铺ID
+		var pd = GetQueryString("pd"); //订单ID
+		var shopindex = 0;
+		var lat = localStorage.getItem("lat"); //纬度
+		var lng = localStorage.getItem("lng"); // 经度
+		var wujiao, //五角星对应分数
+			statu,
+			pic,
+			textA; //评论内容
+
+		jQuery(document).ready(function() {
+			var $inp = $('#rating-input');
+			$inp.rating({
+				min: 0,
+				max: 5,
+				step: 1,
+				size: 'lg',
+				showClear: false
+			});
+			$inp.on('rating.change', function() {
+				wujiao = $('#rating-input').val();
+			});
+
+		});
+
+		$("#text-T").blur(function() {
+			textA = $("#text-T").val();
+			//			alert(textA);
+		})
+
+		$("#dianzanW").click(function() {
+			$(this).hide();
+			$("#dianzanY").show();
+			statu = $("#dianzanY").attr('status');
+			//			alert(statu);
+		});
+		$("#dianzanY").click(function() {
+			$(this).hide();
+			$("#dianzanW").show();
+			statu = $("#dianzanY").attr('status');
+			//			alert(statu);
+		})
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+
+		//头像上传功能
+		$("#fileUpload1").on('change', function() {
+			if(typeof(FileReader) != "undefined") {
+				var image_holder = $("#img1");
+				image_holder.empty();
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$("<img />", { //创建img 然后追加进去
+						"src": e.target.result, //target中的result属性的值，就是该文件的base64数据
+						"style": "width:60px;height:60px;",
+						"class": "thumb-image",
+						"id": "sc1-img"
+					}).appendTo(image_holder);
+					var ar = new Array();
+					var ee = e.target.result;
+					var data = ee.substr(ee.indexOf('base64,') + 7); // 16+7=23
+					ar.InterfaceAddress = "admin/NewsManager/UpImgsBy80";
+					ar.Pic = data;
+					ar.username = 999;
+					ar.id = pd;
+					ar.fileName = 'pinglun';
+					ar.tm = '1';
+					ar.Handshake_Time = CurentTime('-', true);
+					aes(ar, "endHeadpic1");
+				}
+				image_holder.show();
+				reader.readAsDataURL($(this)[0].files[0]); //将文件读取为本地url 通过readAsDataURL读取数据成功后，就会触发load事件
+			} else {
+				alert("你的浏览器不支持FileReader.");
+			}
+
+		});
+		$("#fileUpload2").on('change', function() {
+			if(typeof(FileReader) != "undefined") {
+				var image_holder = $("#img2");
+				image_holder.empty();
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$("<img />", { //创建img 然后追加进去
+						"src": e.target.result, //target中的result属性的值，就是该文件的base64数据
+						"style": "width:60px;height:60px;",
+						"class": "thumb-image",
+						"id": "sc2-img"
+					}).appendTo(image_holder);
+					var ar = new Array();
+					var ee = e.target.result;
+					var data = ee.substr(ee.indexOf('base64,') + 7); // 16+7=23
+					ar.InterfaceAddress = "admin/NewsManager/UpImgsBy80";
+					ar.Pic = data;
+					ar.username = 999;
+					ar.id = pd;
+					//					ar.id = localStorage.getItem("UserId");
+					ar.fileName = 'pinglun';
+					ar.tm = '1';
+					ar.Handshake_Time = CurentTime('-', true);
+					aes(ar, "endHeadpic2");
+				}
+				image_holder.show();
+				reader.readAsDataURL($(this)[0].files[0]); //将文件读取为本地url 通过readAsDataURL读取数据成功后，就会触发load事件
+			} else {
+				alert("你的浏览器不支持FileReader.");
+			}
+
+		});
+		$("#fileUpload3").on('change', function() {
+			if(typeof(FileReader) != "undefined") {
+				var image_holder = $("#img3");
+				image_holder.empty();
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$("<img />", { //创建img 然后追加进去
+						"src": e.target.result, //target中的result属性的值，就是该文件的base64数据
+						"style": "width:60px;height:60px;",
+						"class": "thumb-image",
+						"id": "sc3-img"
+					}).appendTo(image_holder);
+					var ar = new Array();
+					var ee = e.target.result;
+					var data = ee.substr(ee.indexOf('base64,') + 7); // 16+7=23
+					ar.InterfaceAddress = "admin/NewsManager/UpImgsBy80";
+					ar.Pic = data;
+					ar.username = 999;
+					ar.id = pd;
+					ar.fileName = 'pinglun';
+					ar.tm = '1';
+					ar.Handshake_Time = CurentTime('-', true);
+					aes(ar, "endHeadpic3");
+				}
+				image_holder.show();
+				reader.readAsDataURL($(this)[0].files[0]); //将文件读取为本地url 通过readAsDataURL读取数据成功后，就会触发load事件
+			} else {
+				alert("你的浏览器不支持FileReader.");
+			}
+
+		});
+
+		function endHeadpic1(rs) {
+			//			console.log(rs);
+			pic = rs;
+			if(pic == null || pic == undefined || pic == "") {
+				alert("图片过大！让图片飞会儿~，或截图上传更快哦");
+				return false;
+			} else {
+				var sss = document.getElementById("sc1-img").src;
+				var jpegtu = sss.substr(sss.indexOf('image/') + 6, 4);
+				if(jpegtu != "jpeg" && jpegtu != "png;" && jpegtu != "jpg;") {
+					alert("图片类型必须是 jpeg,jpg,png中的一种");
+					return false;
+				}
+				//				else {
+				//					sss = httppp + "/Images/ExpertImg/admin/userHead/" + pic;
+				//					console.log(sss);
+				//				}
+
+			}
+		}
+
+		function endHeadpic2(rs) {
+			//			console.log(rs);
+			pic = rs;
+			if(pic == null || pic == undefined || pic == "") {
+				alert("图片过大！让图片飞会儿~，或截图上传更快哦");
+				return false;
+			} else {
+				var sss = document.getElementById("sc2-img").src;
+				var jpegtu = sss.substr(sss.indexOf('image/') + 6, 4);
+				if(jpegtu != "jpeg" && jpegtu != "png;" && jpegtu != "jpg;") {
+					alert("图片类型必须是 jpeg,jpg,png中的一种");
+					return false;
+				}
+				//				else {
+				//					sss = httppp + "/Images/ExpertImg/admin/userHead/" + pic;
+				//					console.log(sss);
+				//				}
+
+			}
+		}
+
+		function endHeadpic3(rs) {
+			//			console.log(rs);
+			pic = rs;
+			if(pic == null || pic == undefined || pic == "") {
+				alert("图片过大！让图片飞会儿~，或截图上传更快哦");
+				return false;
+			} else {
+				var sss = document.getElementById("sc3-img").src;
+				var jpegtu = sss.substr(sss.indexOf('image/') + 6, 4);
+				if(jpegtu != "jpeg" && jpegtu != "png;" && jpegtu != "jpg;") {
+					alert("图片类型必须是 jpeg,jpg,png中的一种");
+					return false;
+				}
+				//				else {
+				//					sss = httppp + "/Images/ExpertImg/admin/userHead/" + pic;
+				//					console.log(sss);
+				//				}
+			}
+		}
+		//判断是否获取经纬度 没有则给固定的
+		if(lat == null || lat == undefined || lat == "") {
+			// 调用高德地图
+			gclmap.init(undefined, undefined, true, "mapback");
+
+			function mapback(rs) {
+				if(rs.position == undefined) {
+					lat = localStorage.setItem("lat", "28.750334");
+					lng = localStorage.setItem("lng", "104.605221");
+					return;
+				} else if(rs.position.lat != null && rs.position.lat != undefined) {
+					lat = localStorage.setItem("lat", rs.position.lat);
+					lng = localStorage.setItem("lng", rs.position.lng);
+				} else {
+					lat = localStorage.setItem("lat", "28.750334");
+					lng = localStorage.setItem("lng", "104.605221");
+				}
+			}
+		}
+
+		$("#getlist").click(function() {
+			document.getElementById("getlist").innerText = "提交中...";
+			$("#getlist").off("click");
+			var ar = new Array();
+			ar.InterfaceAddress = "api/AddAccess";
+			//			ar.NodeId = cc; //店铺id
+			ar.UserID = userID;
+			ar.TUP = statu;
+			ar.CommentInfo = textA;
+			ar.CommentStars = wujiao;
+			ar.LONG = lng;
+			ar.Dismension = lat;
+			//			ar.ChildCount = "";
+			ar.KeyId = pd;
+			//			ar.status = 1;
+			ar.Handshake_Time = CurentTime('-', false);
+			aes(ar, "endpingjia");
+		});
+
+		function endpingjia(rs) {
+			debugger;
+			if(rs) {
+				mui.openWindow({
+					url: "dingdan.html",
+					id: "dingdan",
+					show: {
+						autoShow: true,
+					},
+					waiting: {}
+				})
+			}
+
+		}
+	</script>
+
+</html>

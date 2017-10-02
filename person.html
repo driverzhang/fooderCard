@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>我的</title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+		<script src="//at.alicdn.com/t/font_363158_1iarzqoue3cv7vi.js"></script>
+		<style>
+			body,
+			p,
+			input,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			ul,
+			li,
+			dl,
+			dt,
+			dd,
+			form {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				vertical-align: middle;
+				font-weight: normal;
+			}
+			
+			a:link,
+			a:visited {
+				color: #444;
+				text-decoration: none;
+				cursor: pointer;
+			}
+			
+			a:hover {
+				background: none;
+			}
+			
+			* {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				width: 100%;
+				font-family: "微软雅黑";
+				/*background: #f3f4f5;*/
+				background: white;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.icon {
+				margin-left: 15px;
+				margin-top: 11px;
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+				color: #DDDDDD;
+			}
+			
+			img {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.main {
+				width: 100%;
+			}
+			
+			.header {
+				height: 120px;
+				width: 100%;
+			}
+			
+			.touxiang {
+				width: 70px;
+				height: 70px;
+				margin: 0px auto;
+				padding-top: 50px;
+				text-align: center;
+			}
+			
+			.login {
+				width: 100%;
+				margin: 12px auto;
+				text-align: center;
+			}
+			
+			#dianji {
+				padding: 3px 8px;
+				border: 1px solid white;
+				background: white;
+				border-radius: 5px;
+				font-size: 14px;
+				color: #444;
+				opacity: 0.9;
+			}
+			
+			.textBox-inner {
+				background: white;
+				height: 40px;
+				margin-top: 5px;
+			}
+			
+			.Inner-li {
+				height: 40px;
+				padding: 10px 0 0 10px;
+				font-size: 16px;
+				color: #303030;
+				float: left;
+			}
+			
+			.xian {
+				margin-top: 10px;
+				margin-left: 45px;
+				border: none;
+				height: 1px;
+				border-top: 1px solid #DDDDDD;
+			}
+			
+			.header-title {
+				height: 50px;
+				line-height: 50px;
+				width: 100%;
+				text-align: center;
+			}
+			
+			.header-left {
+				z-index: 99;
+				position: fixed;
+				float: left;
+			}
+			
+			.header-center {
+				font-size: 16px;
+				color: #444;
+			}
+			
+			.footer {
+				margin: 0 auto;
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+				height: 50px;
+				border-top: solid 1px #d8d8d8;
+				z-index: 999;
+				background: white;
+			}
+			
+			.footer-down {
+				float: left;
+				width: 25%;
+				text-align: center;
+				margin-top: 5px;
+			}
+			
+			.text-down {
+				font-size: 14px;
+			}
+			
+			#my {
+				/*color: #1296db;*/
+				color: #f6942a;
+			}
+			
+			#denglu {
+				height: 184px;
+			}
+			
+			.topHead {
+				background-image: url(img/beijing.png);
+				background-size: 100% 100%;
+			}
+			
+			.zi {
+				line-height: 0.88;
+			}
+		</style>
+		<!--<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>-->
+	</head>
+
+	<body>
+
+		<div class="main">
+			<div class="topHead">
+				<!--<header class="header-title">
+					<div class="header-center">
+						<span>我的</span>
+					</div>
+				</header>-->
+				<!--头像-->
+				<div id="denglu">
+
+					<div class="header">
+						<div class="touxiang" id="userImg">
+							<div style="width: 70px;z-index: 999;position: fixed; top: 100px;height: 70px;">
+								<!--<form action="admin/NewsManager/UpdateImgBy80" method="post">
+									<input style="background: transparent;opacity: 0;height: 80px;width: 100%;" type="file" id="fileUpload" name="fileTrans" multiple="true" value="上传图片" />
+								</form>-->
+							</div>
+							<img id="sc-img" style="width: 70px;height: 70px;border-radius: 70px; margin-top: 50px;position: relative;bottom: 50px;" src="" onerror="javascript:this.src='img/touxiang.png'" />
+							<!--默认头像-->
+						</div>
+					</div>
+					<a href="#" id="tiao">
+						<div class="login">
+							<span id="dianji">我的昵称</span>
+							<div id="name" style="font-size: 16px;"></div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<a href="shezhi.html">
+				<div class="textBox-inner">
+					<svg class="icon" aria-hidden="true" style="float: left; font-size: 20px;">
+						<use xlink:href="#icon-shezhi1-copy-copy"></use>
+					</svg>
+					<li class="Inner-li iconfont"> 设 置</li>
+					<svg class="icon" aria-hidden="true" style="float: right; font-size: 20px;">
+						<use xlink:href="#icon-xiangyou"></use>
+					</svg>
+				</div>
+				<hr class="xian" />
+			</a>
+			<a href="dingdan.html">
+				<div class="textBox-inner">
+					<svg class="icon" aria-hidden="true" style="float: left; font-size: 20px;">
+						<use xlink:href="#icon-shouye1"></use>
+					</svg>
+					<li class="Inner-li iconfont"> 订 单</li>
+					<svg class="icon" aria-hidden="true" style="float: right; font-size: 20px;">
+						<use xlink:href="#icon-xiangyou"></use>
+					</svg>
+
+				</div>
+				<hr class="xian" />
+			</a>
+			<a href="callUs.html">
+				<div class="textBox-inner">
+					<svg class="icon" aria-hidden="true" style="float: left; font-size: 20px;">
+						<use xlink:href="#icon-wode-copy"></use>
+					</svg>
+					<li class="Inner-li iconfont"> 联系客服</li>
+					<svg class="icon" aria-hidden="true" style="float: right; font-size: 20px;">
+						<use xlink:href="#icon-xiangyou"></use>
+					</svg>
+
+				</div>
+				<hr class="xian" />
+			</a>
+			<div id="getin">
+				<a href="ruzhu.html">
+					<div class="textBox-inner">
+						<svg class="icon" aria-hidden="true" style="float: left; font-size: 20px;">
+							<use xlink:href="#icon-shequ1xiangqian10-copy"></use>
+						</svg>
+						<li class="Inner-li iconfont"> 商家入驻</li>
+						<svg class="icon" aria-hidden="true" style="float: right; font-size: 20px;">
+							<use xlink:href="#icon-xiangyou"></use>
+						</svg>
+
+					</div>
+					<hr class="xian" />
+				</a>
+			</div>
+			<div id="saoma" style="display: none;">
+				<div class="textBox-inner">
+					<svg class="icon" aria-hidden="true" style="float: left; font-size: 20px;">
+						<use xlink:href="#icon-saoma"></use>
+					</svg>
+					<li class="Inner-li iconfont"> 扫码核销</li>
+					<svg class="icon" aria-hidden="true" style="float: right; font-size: 20px;">
+						<use xlink:href="#icon-xiangyou"></use>
+					</svg>
+
+				</div>
+				<hr class="xian" />
+			</div>
+		</div>
+
+		<footer class="footer">
+			<a href="index.html">
+				<div id="shouye" class="footer-down">
+					<i class="iconfont icon-shouye" style="font-size: 22px;"></i>
+					<div class="zi"><span class="text-down">首页</span></div>
+				</div>
+			</a>
+			<a href="shopping.html">
+				<div id="shangjia" class="footer-down">
+					<i class="iconfont icon-shangjia1" style="font-size: 22px;"></i>
+					<div class="zi"><span class="text-down">商家</span></div>
+				</div>
+			</a>
+			<a href="boomshaklak.html">
+				<div id="chihuoka" class="footer-down">
+					<i class="iconfont icon-qia" style="font-size: 22px;"></i>
+					<div class="zi"><span class="text-down">吃货卡</span></div>
+
+				</div>
+			</a>
+			<div id="my" class="footer-down">
+				<i class="iconfont icon-xiaolian" style="font-size: 22px;"></i>
+				<div class="zi"><span class="text-down">我的</span></div>
+			</div>
+
+		</footer>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/MD5S.js"></script>
+		<script src="js/TravelTailorSafeInterface.js?1"></script>
+		<script>
+			var pic = "";
+			var nc = localStorage.getItem("nc");
+			var id = localStorage.getItem("Id");
+			var headimg = localStorage.getItem("head");
+
+			$(document).ready(function(){
+				if(localStorage.getItem("Id")==null){
+						mui.openWindow({
+						url: "login.html",
+						id: "login",
+						show: {
+							autoShow: true, //页面loaded事件发生后自动显示，默认为true
+						},
+						waiting: {
+	
+						}
+					});
+				}
+				else{
+					if(headimg!=null)
+						document.getElementById("sc-img").src = headimg;
+					$("#dianji").hide();
+					if(nc!=null)
+						document.getElementById("name").innerText = nc;
+					
+				}
+			})
+			
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var myimg = localStorage.getItem("face");
+			var face = localStorage.getItem("face");
+			//			alert(uid);
+			var beginGUSER = false;
+			var shopindex = 0;
+			var myphone,
+				username,
+				face,
+				uid;
+			var Isfirst = false;
+			//			var u = navigator.userAgent;
+			//			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 返布尔值
+			//			var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端 返布尔值
+			//			$(".textBox-inner").eq(0).click(function() {
+			//				//				alert(1);
+			//				QFH5.jumpNewWebview("shezhi.html");
+			//			});
+
+			$(function() {
+				if(myimg == null || myimg == "" || myimg == undefined || nc == null || nc == "" || nc == undefined) {
+					//开始 接入千帆系统
+					function QFH5ready() {
+						if(!Isfirst) { //当 Isfirst 为false时 一定成立。   当 Isfalse 为 true 时 !Isfalse => false != true 
+							Isfirst = true; // Isfirst 变为 true;
+							QFH5.setShareInfo("大宜宾拼车", "http://dayibin.cn/data/attachment/forum/201607/22/164014jcqq4a64tqaq7bae.jpg",
+								"快来吧,和我一起出发,跟着心情走,去哪都可以", "http://share.dayibin.cn/wap/download/index?type=0&id=",
+								function(state, data) {
+									if(state == 1) {
+										alert("分享成功");
+									} else {
+										alert(data.error);
+									}
+								});
+							QFH5.getUserInfo(function(state, data) {
+
+								if(state == 1) {
+									if(!beginGUSER) {
+										beginGUSER = true;
+										//										uid = data.uid;
+										//										localStorage.setItem("uid", uid);
+										//							setTimeout(function() {
+										//								koGetMoney();
+										//							}, 50);
+										username = data.username;
+										face = data.face;
+										myphone = data.phone;
+										//							var crimg = document.getElementById("imgpp");
+										//							crimg.src = face;
+										var deviceid = data.deviceid;
+										GetDate();
+										//							document.getElementById("nc").innerText = username;
+										//							document.getElementById("SBphone").innerText = myphone;
+										if(myphone == "") {
+											alert("请绑定手机号");
+											QFH5.jumpProfile();
+										}
+									}
+								} else {
+									QFH5.jumpLogin(function(state, data) {})
+								}
+							})
+						}
+					}
+				} else {
+					uid = localStorage.getItem("uidnew");
+					//					alert(uid);
+					document.getElementById("sc-img").src = myimg;
+					$("#dianji").hide();
+					document.getElementById("name").innerText = nc;
+					checkshop();
+				}
+			});
+
+			//判断是否为 商家UID
+			function checkshop() {
+				var ar = new Array();
+				var ph = {
+					Collection: [{
+						F: "StopUid",
+						O: "=",
+						P: "@@StopUid",
+						V: uid
+					}, ]
+				};
+				ar.Condition = ph;
+				ar.InterfaceAddress = "api/ShopInfo"; //查询接口通用一致
+				ar.name = "Shopinfo";
+				ar.OrderBy = "CreationDate desc";
+				ar.Index = 0;
+				ar.Size = 1;
+				ar.Handshake_Time = CurentTime('-', true);
+				aes(ar, "endData");
+			}
+			//			var ts = "";
+
+			function endData(rs) {
+				var TData = eval("(" + rs + ")");
+				if(TData != "") {
+					if(TData.length > 0) {
+						$("#getin").hide();
+						$("#saoma").show();
+						//						ts = TData[0].Id;
+					}
+				}
+			}
+			//扫一扫
+			$("#saoma").click(function() {
+				//				alert(1);
+				QFH5.jumpScan(function(state, data) { //JS发起的扫描全部回调，不自动打开
+					if(state == 1) {
+						//扫描成功
+						var rssys = data.content;
+						if(rssys == undefined)
+							rssys = data;
+						//						alert(data.content); //扫描内容
+						//核销判断
+						var ar = new Array();
+						ar.InterfaceAddress = "api/writeoff";
+						ar.shopuid = uid;
+						//						alert(ar.shopuid);
+						ar.orderID = rssys; //订单ID（二维码扫描获得）
+						//						alert(ar.orderID);
+						ar.Handshake_Time = CurentTime('-', true);
+						aes(ar, "endsaoma");
+
+					} else {
+						//扫描失败
+						alert(data.error); //错误信息
+					}
+				})
+			});
+
+			function endsaoma(rs) {
+				alert(rs);
+				var TData = eval("(" + rs + ")");
+				if(TData.suc) {
+					alert("扫码成功，核销完成，请您注意查收~")
+
+				} else {
+					alert(TData.msg);
+				}
+			}
+
+			function GetDate() {
+				var ar = new Array();
+				ar.InterfaceAddress = "api/AddUserInfo";
+				ar.phone = myphone;
+				ar.password = "123456";
+				ar.nc = username;
+				ar.uidfrom = "大宜宾";
+				ar.uid = uid;
+				ar.sex = true;
+				ar.Handshake_Time = CurentTime('-', true);
+				aes(ar, "endRegision");
+			}
+
+			function endRegision(rs) {
+				var verData = eval('(' + rs + ')');
+				//				console.log(verData);
+				if(verData == undefined) {
+					alert(rs);
+				} else if(verData.suc) {
+					localStorage.setItem("loginstate", "true");
+					localStorage.setItem("loginPhone", verData.ReturnData.UserPhone);
+					localStorage.setItem("loginPassword", verData.ReturnData.passWord);
+					localStorage.setItem("nc", verData.ReturnData.NC);
+					localStorage.setItem("Id", verData.ReturnData.Id);
+					localStorage.setItem("face", face);
+				} else {
+					alert(verData.msg);
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>设 置</title>
+		<script src="//at.alicdn.com/t/font_xmirwjozzyr5dn29.js"></script>
+		<!--<link href="css/mui.min.css" rel="stylesheet" />-->
+		<style>
+			body,
+			p,
+			input,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			ul,
+			li,
+			dl,
+			dt,
+			dd,
+			form {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				vertical-align: middle;
+				font-weight: normal;
+			}
+			
+			a {
+				cursor: pointer;
+				text-decoration: none;
+			}
+			
+			* {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+			html,
+			body {
+				/*height: 100%;*/
+				width: 100%;
+				font-family: "微软雅黑";
+				/*background: #f3f4f5;*/
+				background: #f0f0f0;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.icon {
+				margin-left: 15px;
+				margin-top: 11px;
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+				color: #DDDDDD;
+				;
+			}
+			
+			img {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.main {
+				width: 100%;
+				/*margin-top: 50px;*/
+			}
+			
+			.textBox-inner {
+				background: white;
+				height: 40px;
+			}
+			
+			.Inner-li {
+				height: 40px;
+				padding: 10px 0 0 10px;
+				font-size: 16px;
+				color: #303030;
+				float: left;
+			}
+			
+			.header-title {
+				height: 50px;
+				line-height: 50px;
+				border-bottom: 1px solid #DDDDDD;
+				position: fixed;
+				top: 0;
+				z-index: 9;
+				width: 100%;
+				background: white;
+				text-align: center;
+			}
+			
+			.header-left {
+				z-index: 99;
+				position: fixed;
+				float: left;
+			}
+			
+			.header-center {
+				font-size: 20px;
+			}
+			
+			.box-three {
+				margin-top: 60px;
+				height: 64px;
+				background: white;
+				border-top: 1px solid #EDEDED;
+			}
+		</style>
+
+		<!--<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>-->
+	</head>
+
+	<body>
+		<!--<div class="header-title">
+			<div class="header-left">
+
+				<a href="javascript:window.history.back();">
+					<svg class="icon" aria-hidden="true" style="font-size: 30px;margin-left: 0; color: black;">
+						<use xlink:href="#icon-houtui"></use>
+					</svg>
+				</a>
+			</div>
+			<div class="header-center">
+				<span>设 置</span>
+			</div>
+
+		</div>-->
+
+		<div class="main">
+			<div class="textBox-inner" style="margin-top: 1px;">
+				<a href="callUs.html">
+					<li class="Inner-li iconfont"> 关于我们</li>
+					<svg class="icon" aria-hidden="true" style="float: right; font-size: 20px;">
+						<use xlink:href="#icon-xiangyou"></use>
+					</svg>
+
+				</a>
+			</div>
+			<div class="textBox-inner" style="margin-top: 1px;position: absolute;left: o;width: 100%;">
+				<a>
+					<li class="Inner-li iconfont"> 分享APP</li>
+					<svg class="icon" aria-hidden="true" style="float: right; font-size: 20px;">
+						<use xlink:href="#icon-xiangyou"></use>
+					</svg>
+
+				</a>
+			</div>
+
+			<a href="javascript:window.opener=null;window.close();" onclick="logout()">
+				<div class="box-three">
+					<p style="text-align: center; color: #ff4242; font-size: 16px; padding: 20px;">退出登录</p>
+				</div>
+			</a>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			function logout() {
+				if(confirm("您确定要退出登录吗？")) { //confirm() 方法用于显示一个带有指定消息和 OK 及取消按钮的对话框。
+					localStorage.clear();
+					mui.openWindow({
+						//						url: "examples/forget_password.html",
+						url: "login.html",
+						id: "login",
+						show: {
+							autoShow: true, //页面loaded事件发生后自动显示，默认为true
+
+						},
+						waiting: {
+
+						}
+					})
+
+				}
+				return false;
+			}
+		</script>
+
+	</body>
+
+</html>

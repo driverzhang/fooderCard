@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>瞎卡拉卡</title>
+    <script src="//at.alicdn.com/t/font_xmirwjozzyr5dn29.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+</head>
+<style type="text/css">
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+			font-family: "微软雅黑";
+		}
+        @media screen and (min-width: 1060px) {
+            body {width: 70%}
+        }
+        @media screen and (min-width: 768px) {
+            body {width: 70%}
+        }
+		
+		.icon {
+			/*margin: 0 auto;*/
+			width: 1em;
+			height: 1em;
+			vertical-align: -0.15em;
+			fill: currentColor;
+			overflow: hidden;
+			color: #DDDDDD;
+			;
+		}
+		
+		a:link,
+		a:visited {
+			color: #444;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		/*a:hover {
+			color: #444;
+		}*/
+		
+		.header-title {
+			height: 50px;
+			line-height: 50px;
+			border-bottom: solid 1px #bebbbb;
+			position: fixed;
+			top: 0;
+			z-index: 999;
+			width: 100%;
+			background: #f9f9f9;
+		}
+		
+		.Boomcard {
+			width: 80%;
+			height: auto;
+			margin-left: 10%;
+			/*box-shadow: 2px 0px 2px #bdbbbb;*/
+			border-radius: 5px;
+			margin: 50px auto;
+			margin-bottom: 0;
+			display: none;
+		}
+		
+		.ShareNext {
+			width: 70%;
+			height: 40px;
+			border: solid 1px #53ca7a;
+			background: #53ca7a;
+			margin-left: 15%;
+			border-radius: 25px;
+			text-align: center;
+			line-height: 40px;
+			color: whitesmoke;
+			box-shadow: 2px 3px 2px #b4ddc1;
+			/*display: none;*/
+		}
+		
+		* {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		
+		#sucbuy {
+			display: none;
+			height: 40px;
+			width: 100%;
+			margin-top: 40px;
+		}
+		
+		.xufei {
+			width: 35%;
+			height: 40px;
+			margin-left: 10%;
+			border: solid 1px #f69429;
+			background: #f69429;
+			float: left;
+			border-radius: 25px;
+			text-align: center;
+			line-height: 40px;
+			color: whitesmoke;
+			box-shadow: 2px 3px 2px #ecc294;
+			/*display: none;*/
+		}
+		
+		.xufei2 {
+			width: 35%;
+			height: 40px;
+			margin-right: 10%;
+			border: solid 1px #f2949f;
+			background: #f2949f;
+			float: right;
+			border-radius: 25px;
+			text-align: center;
+			line-height: 40px;
+			color: whitesmoke;
+			box-shadow: 2px 3px 2px #e9b9bb;
+			/*display: none;*/
+		}
+		
+		li {
+			color: #d3d1d1;
+			font-size: 14px;
+		}
+		
+		.guize {
+			width: 80%;
+			margin: 5px auto;
+			text-align: left;
+		}
+		
+		.Tishi {
+			background: floralwhite;
+			position: fixed;
+			left: 5%;
+			bottom: -185px;
+			width: 90%;
+			/*height: 270px;*/
+			margin: 0 auto;
+			text-align: center;
+			border-radius: 10px;
+			z-index: 99;
+			display: none;
+		}
+		
+		.footer {
+			margin: 0 auto;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			height: 50px;
+			border-top: solid 1px #d8d8d8;
+			z-index: 999;
+			background: white;
+		}
+		
+		.footer-down {
+			float: left;
+			width: 25%;
+			text-align: center;
+			margin-top: 5px;
+		}
+		
+		.text-down {
+			font-size: 14px;
+		}
+		
+		#chihuoka {
+			color: #F6942A
+		}
+		
+		.header-title {
+			height: 50px;
+			line-height: 50px;
+			/*border-bottom: 1px solid #DDDDDD;*/
+			border: none;
+			position: fixed;
+			top: 0;
+			z-index: 9;
+			width: 100%;
+			background: #f0f0f0;
+			text-align: center;
+		}
+		
+		.header-left {
+			z-index: 99;
+			position: fixed;
+			top: 5px;
+			float: left;
+		}
+		
+		.header-center {
+			font-size: 20px;
+		}
+		
+		.ShareThen {
+			position: absolute;
+			left: 10%;
+			width: 80%;
+			height: 60%;
+			background: white;
+			text-align: center;
+			margin: 0px auto;
+			display: none;
+		}
+		
+		.twoma {
+			height: 30%;
+			width: 40%;
+			margin: 15% auto;
+			margin-bottom: 10px;
+		}
+		
+		li {
+			color: #808080;
+		}
+		
+		.zi {
+			line-height: 0.88;
+		}
+		
+		.mynameD {
+			color: white;
+			font-size: 10px;
+			position: relative;
+			top: -80px;
+			left: 10px;
+		}
+		
+		#mycardnub {}
+		
+		.mycard {
+			font-size: 10px;
+			color: brown;
+			position: absolute;
+			margin-top: -70px;
+			margin-left: 10px;
+		}
+		
+		.timeday {
+			font-size: 8px;
+			float: right;
+			position: relative;
+			top: -46px;
+			right: 5px;
+		}
+		/*css3 等待特效*/
+		
+		.spinner {
+			position: fixed;
+			width: 35px;
+			height: 35px;
+			top: 35%;
+			left: 45%;
+			z-index: 9999;
+		}
+		
+		.container1>div,
+		.container2>div,
+		.container3>div {
+			width: 6px;
+			height: 6px;
+			background-color: black;
+			border-radius: 100%;
+			position: absolute;
+			-webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+			animation: bouncedelay 1.2s infinite ease-in-out;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+		}
+		
+		.spinner .spinner-container {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+		
+		.container2 {
+			-webkit-transform: rotateZ(45deg);
+			transform: rotateZ(45deg);
+		}
+		
+		.container3 {
+			-webkit-transform: rotateZ(90deg);
+			transform: rotateZ(90deg);
+		}
+		
+		.circle1 {
+			top: 0;
+			left: 0;
+		}
+		
+		.circle2 {
+			top: 0;
+			right: 0;
+		}
+		
+		.circle3 {
+			right: 0;
+			bottom: 0;
+		}
+		
+		.circle4 {
+			left: 0;
+			bottom: 0;
+		}
+		
+		.container2 .circle1 {
+			-webkit-animation-delay: -1.1s;
+			animation-delay: -1.1s;
+		}
+		
+		.container3 .circle1 {
+			-webkit-animation-delay: -1.0s;
+			animation-delay: -1.0s;
+		}
+		
+		.container1 .circle2 {
+			-webkit-animation-delay: -0.9s;
+			animation-delay: -0.9s;
+		}
+		
+		.container2 .circle2 {
+			-webkit-animation-delay: -0.8s;
+			animation-delay: -0.8s;
+		}
+		
+		.container3 .circle2 {
+			-webkit-animation-delay: -0.7s;
+			animation-delay: -0.7s;
+		}
+		
+		.container1 .circle3 {
+			-webkit-animation-delay: -0.6s;
+			animation-delay: -0.6s;
+		}
+		
+		.container2 .circle3 {
+			-webkit-animation-delay: -0.5s;
+			animation-delay: -0.5s;
+		}
+		
+		.container3 .circle3 {
+			-webkit-animation-delay: -0.4s;
+			animation-delay: -0.4s;
+		}
+		
+		.container1 .circle4 {
+			-webkit-animation-delay: -0.3s;
+			animation-delay: -0.3s;
+		}
+		
+		.container2 .circle4 {
+			-webkit-animation-delay: -0.2s;
+			animation-delay: -0.2s;
+		}
+		
+		.container3 .circle4 {
+			-webkit-animation-delay: -0.1s;
+			animation-delay: -0.1s;
+		}
+		
+		@-webkit-keyframes bouncedelay {
+			0%,
+			80%,
+			100% {
+				-webkit-transform: scale(0.0)
+			}
+			40% {
+				-webkit-transform: scale(1.0)
+			}
+		}
+		
+		@keyframes bouncedelay {
+			0%,
+			80%,
+			100% {
+				transform: scale(0.0);
+				-webkit-transform: scale(0.0);
+			}
+			40% {
+				transform: scale(1.0);
+				-webkit-transform: scale(1.0);
+			}
+		}
+		
+		#on {
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.12);
+			position: fixed;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		
+		#on2 {
+			width: 100%;
+			height: 100%;
+			/*background-color: rgba(0, 0, 0, 0.12);*/
+			position: fixed;
+			top: 0;
+			left: 0;
+			/*display: none;*/
+		}
+		
+		.spinner2 {
+			position: fixed;
+			width: 35px;
+			height: 35px;
+			top: 18%;
+			left: 45%;
+			z-index: 9999;
+		}
+	</style>
+
+<body style="background: #f0f0f0;">
+    <div class="header-title">
+        <div class="header-center">
+            <span>五折吃货卡</span>
+        </div>
+    </div>
+    <div style="height: 280px; width: 100%;" id="KK"></div>
+    <div class="Boomcard" id="Bcard">
+        <div id="NNbuycard">
+            <img id="Nbuy" src="img/morenka.png" style="width: 100%; height: 100%;" />
+        </div>
+        <div id="YYbuycard" style="display: none; height: 190px;">
+            <div>
+                <img id="Ybuy" src="img/divv.png" style="width: 100%; height: 190px;" /></div>
+            <div class="mynameD"><span id="myname">我的昵称</span></div>
+            <div class="mycard"><b><span id="mycardnub">NO: 000000000</span></b></div>
+            <div class="timeday"><span id="daytime">有效时间:2017/09/30</span></div>
+        </div>
+    </div>
+    <div id="on2">
+        <div class="spinner spinner2" id="spinnerLoading">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
+    <div class="AllShare">
+        <!--css3 等待特效-->
+        <div id="on">
+            <div class="spinner" id="spinnerLoading">
+                <div class="spinner-container container1">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="Share" id="sharecard" style="display: none;">
+            <div class="ShareNext" id="buycard">
+                <span id="buycardT">点击购买吃货卡</span>
+            </div>
+            <div id="sucbuy">
+                <div class="xufei">
+                    <span id="">我要续卡费</span>
+                </div>
+                <div class="xufei2">
+                    <span id="">DIY吃货卡</span>
+                </div>
+            </div>
+        </div>
+        <div class="member" style="margin-top: 20px; text-align: center;">
+            <span class="Hot" style="font-size: 18px; font-weight: bold;">
+                <span style="color: #d3d1d1;">——</span> <span style="color: #f8dd46;">·</span> 会员规则 <span style="color: orange;">· </span><span style="color: #d3d1d1;">——</span>
+            </span>
+        </div>
+        <div class="guize">
+            <ol style="margin-left: -15px;">
+                <li>点击上方购买吃货卡，您将获得我们平台的“吃货卡”，有效期见卡面。</li>
+                <li>向大宜宾合作商户出示“吃货卡”，商户通过扫码核实身份后，可以享受对应商户的折扣。</li>
+                <li>“吃货卡”是大宜宾五折吃货卡会员唯一识别身份，持“吃货卡”可以参与大宜宾吃货卡旗下所有的活动。</li>
+                <li>本卡一切解释权归大宜宾吃货卡所有。</li>
+            </ol>
+        </div>
+        <div style="height: 50px; width: 100%;"></div>
+    </div>
+
+    <footer class="footer">
+        <a href="index.html">
+            <div id="shouye" class="footer-down">
+                <i class="iconfont icon-shouye" style="font-size: 22px;"></i>
+                <div class="zi"><span class="text-down">首页</span></div>
+            </div>
+        </a>
+        <a href="shopping.html">
+            <div id="shangjia" class="footer-down">
+                <i class="iconfont icon-shangjia1" style="font-size: 22px;"></i>
+                <div class="zi"><span class="text-down">商家</span></div>
+            </div>
+        </a>
+        <div id="chihuoka" class="footer-down">
+            <i class="iconfont icon-qia" style="font-size: 22px;"></i>
+            <div class="zi"><span class="text-down">吃货卡</span></div>
+        </div>
+        <a href="person.html">
+            <div id="my" class="footer-down">
+
+                <i class="iconfont icon-xiaolian" style="font-size: 22px;"></i>
+                <div class="zi"><span class="text-down">我的</span></div>
+
+            </div>
+        </a>
+
+    </footer>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/MD5S.js"></script>
+<script src="js/TravelTailorSafeInterface.js?1"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (localStorage.getItem("Id") == null) {
+            mui.openWindow({
+                url: "login.html",
+                id: "login",
+                show: {
+                    autoShow: true, //页面loaded事件发生后自动显示，默认为true
+                },
+                waiting: {
+
+                }
+            });
+
+        }
+
+        var userid = GetQueryString("userid");
+        var id = localStorage.getItem("Id");
+        if (userid != null) {
+            var ar = new Array();
+            ar.InterfaceAddress = "api/GetUser";
+            ar.userId = userid;
+            ar.Handshake_Time = CurentTime('-', true);
+            aes(ar, "endvalidata");
+        }
+        else if (id != null) {
+            var ar = new Array();
+            ar.InterfaceAddress = "api/GetUser";
+            ar.userId = id;
+            ar.Handshake_Time = CurentTime('-', true);
+            aes(ar, "endvalidata");
+        }
+
+
+    })
+    
+    
+    function endvalidata(rs) {
+            var TData = eval("(" + rs + ")");
+
+            if (TData != "" && TData != undefined) {
+                localStorage.setItem("loginstate", "true");
+                localStorage.setItem("loginPhone", TData.ReturnData.UserPhone);
+                UserPhone=TData.ReturnData.UserPhone;
+                localStorage.setItem("loginPassword", TData.ReturnData.passWord);
+                Userpassword=TData.ReturnData.passWord;
+                localStorage.setItem("nc", TData.ReturnData.NC);
+                localStorage.setItem("Id", TData.ReturnData.Id);
+                localStorage.setItem("uidnew", TData.ReturnData.uid);
+                localStorage.setItem("ICCard", TData.ReturnData.ICCard);
+                localStorage.setItem("IcardInvalidData", TData.ReturnData.IcardInvalidData);
+                localStorage.setItem("face", TData.ReturnData.Head);
+            }
+        }
+    
+    setTimeout(function () {
+        document.getElementById("on2").style.display = "none";
+        KK
+        document.getElementById("KK").style.display = "none";
+        KK
+        document.getElementById("Bcard").style.display = "block"
+        document.getElementById("sharecard").style.display = "block"
+    }, 1000)
+
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+    var shopindex = 0;
+    var lat = localStorage.getItem("lat");
+    var lng = localStorage.getItem("lng");
+    var ICCard = localStorage.getItem("ICCard");
+    var IcardInvalidData = localStorage.getItem("IcardInvalidData");
+    var UserPhone = localStorage.getItem("loginPhone");
+    var Userpassword = localStorage.getItem("loginPassword");
+    var nc = localStorage.getItem("nc");
+    var Isfirst = false;
+    //		if(UserPhone == "" || UserPhone == null || UserPhone == undefined) {
+    //开始 接入千帆系统
+    var uid;
+    function QFH5ready() {
+        if (!Isfirst) { //当 Isfirst 为false时 一定成立。   当 Isfalse 为 true 时 !Isfalse => false != true 
+            Isfirst = true; // Isfirst 变为 true;
+
+            QFH5.getUserInfo(function (state, data) {
+
+                if (state == 1) {
+                    if (!beginGUSER) {
+                        beginGUSER = true;
+                        uid = data.uid;
+                        localStorage.setItem("uid", uid);
+                        username = data.username;
+                        face = data.face;
+                        localStorage.setItem("face ", face);
+                        myphone = data.phone;
+                        var deviceid = data.deviceid;
+                        GetDate();
+                        if (myphone == "") {
+                            alert("请绑定手机号");
+                            QFH5.jumpProfile();
+                        }
+                    }
+                } else {
+                    QFH5.jumpLogin(function (state, data) { })
+                }
+            })
+        }
+    }
+    //		}
+
+    function GetDate() {
+        //				alert("开始注册");
+        var ar = new Array();
+        ar.InterfaceAddress = "api/AddUserInfo";
+        ar.phone = myphone;
+        ar.password = "123456";
+        ar.address = "";
+        ar.realName = "";
+        ar.nc = username;
+        ar.ICard = "";
+        ar.uidfrom = "dayibin";
+        var newuid = ar.uidfrom + uid;
+        ar.uid = newuid;
+        ar.headsrc = face;
+        ar.sex = true;
+        ar.BankIcard = "";
+        var re = "";
+        ar.remark = re;
+        ar.Handshake_Time = CurentTime('-', true);
+        aes(ar, "endRegision");
+    }
+
+    function endRegision(rs) {
+        var verData = eval('(' + rs + ')');
+        if (verData == undefined) {
+            alert(rs);
+        } else if (verData.suc) {
+            localStorage.setItem("loginstate", "true");
+            localStorage.setItem("loginPhone", verData.ReturnData.UserPhone);
+            localStorage.setItem("loginPassword", verData.ReturnData.passWord);
+            localStorage.setItem("nc", verData.ReturnData.NC);
+            localStorage.setItem("Id", verData.ReturnData.Id);
+            localStorage.setItem("uidnew", verData.ReturnData.uid);
+            localStorage.setItem("ICCard", verData.ReturnData.ICCard);
+            localStorage.setItem("IcardInvalidData", verData.ReturnData.IcardInvalidData);
+            localStorage.setItem("face", face);
+            IcardInvalidData=verData.ReturnData.IcardInvalidData;
+            document.getElementById("daytime").innerText = "有效时间至: " + CurentTimeBydata("-", eval('new ' + eval(verData.ReturnData.IcardInvalidData).source), false);
+        } else {
+            alert(verData.msg);
+        }
+    }
+    ICCard = localStorage.getItem("ICCard");
+    IcardInvalidData = localStorage.getItem("IcardInvalidData");
+    UserPhone = localStorage.getItem("loginPhone");
+    Userpassword = localStorage.getItem("loginPassword");
+    nc = localStorage.getItem("nc");
+
+    setTimeout('panduan()', 200);
+
+    function panduan() {
+        //			alert(1);
+        if (ICCard != "" && ICCard != "null" && ICCard != undefined) {
+            var nowday = (new Date()).valueOf();
+            var time = CurentTimeBydata("-", eval('new ' + eval(IcardInvalidData).source), false);
+            if (IcardInvalidData >= nowday) {
+                //	alert("有效期内:"+time);
+                //买过了卡并且在有效期
+                $("#NNbuycard").hide();
+                $("#YYbuycard").show();
+                document.getElementById("myname").innerText = nc;
+                document.getElementById("mycardnub").innerText = ICCard;
+                document.getElementById("daytime").innerText = "有效时间至: " + time;
+                $("#buycard").hide();
+                $("#sucbuy").show();
+                //点击续费
+                $(".xufei").click(function () {
+                    paymoney();
+                });
+                //点击DIY
+                $(".xufei2").click(function () {
+                    alert("功能尚未开通，敬请期待！");
+                    return false;
+                });
+
+            } else {
+                // 买过卡 但是已经过期了
+                $("#NNbuycard").hide();
+                $("#YYbuycard").show();
+                document.getElementById("myname").innerText = nc;
+                document.getElementById("mycardnub").innerText = "NO: " + ICCard;
+                document.getElementById("daytime").innerText = "有效时间至: " + time;
+                $("#buycard").hide();
+                $("#sucbuy").show();
+                //点击续费
+                $(".xufei").click(function () {
+                    paymoney();
+                });
+                //点击DIY
+                $(".xufei2").click(function () {
+                    alert("功能尚未开通，敬请期待！");
+                    return false;
+                });
+
+            }
+
+        } else {
+            //一次卡 都没买过。
+            //				$("#NNbuycard").hide();
+            //				$("#YYbuycard").show();
+            //				document.getElementById("myname").innerText = nc;
+            //				document.getElementById("mycardnub").innerText = "NO: " + ICCard;
+            //				document.getElementById("daytime").innerText = "有效时间至:" + time;
+            //				$("#buycard").hide();
+            //				$("#sucbuy").show();
+            //				//点击续费
+            //				$(".xufei").click(function() {
+            //					paymoney();
+            //				});
+            //				//点击DIY
+            //				$(".xufei2").click(function() {
+            //					//					alert(2);
+            //				});
+
+        }
+
+    }
+
+    var jfpaydisabled = false;
+    dianji();
+
+    function dianji() {
+        $("#buycard").click(function () {
+            paymoney();
+        });
+    }
+
+    function paymoney() {
+        //			alert("我，你爸爸，打钱！");
+        if (confirm("是否花费1分购买此卡？")) {
+            //debugger;
+            if (!jfpaydisabled) {
+                //这里可加入提交等待效果。
+                $("#on").show();
+                document.getElementById("buycardT").innerText = "正在购买中...";
+                $("#buycard").off("click");
+                //					debugger;
+                jfpaydisabled = true; //让他只执行一次就够了！
+                var ar = new Array();
+                var ListAppOrderInfo = [];
+                var AppOrderInfo = [];
+                AppOrderInfo.ProductId = "d36efa23-6591-477d-8130-687b5d7079e6"; // 产品ID
+                AppOrderInfo.ShopId = "d81c4d80-987c-46a7-a618-304aa802667c"; //商铺ID
+                AppOrderInfo.ProductNum = 1; //购买数量
+                AppOrderInfo.ISInterAndMoney = false; // 是否支持积分购买
+                ListAppOrderInfo.push(AppOrderInfo); // 将购买的物品逐渐加入购物订单列表，当前列子为仅购买一件物品。
+                ar.ListAppOrderInfo = ListAppOrderInfo; //订单列表
+                ar.UserPhone = UserPhone; //用户ID
+                ar.password = Userpassword;
+                ar.orderstatu = 1;
+                if (uid == undefined)
+                    ar.InterfaceAddress = "api/AddOrderByWebChar";
+                else
+                    ar.InterfaceAddress = "api/AddOrder";
+                aes(ar, "endjfPay");
+            } else {
+                alert("正在处理订单请稍后");
+            }
+        } else {
+            return false;
+
+        }
+    }
+
+    function endjfPay(rs) {
+        var TData = eval("(" + rs + ")");
+        if (uid == undefined) {
+            if (TData.suc) {
+
+                onBridgeReady(TData.msg);
+
+            } else {
+                alert(TData.msg);
+                $("#on").hide();
+                document.getElementById("buycardT").innerText = "点击购买吃货卡";
+                dianji();
+            }
+        }
+        else {
+            if (TData.suc) {
+                $("#buycard").hide();
+                $("#sucbuy").show();
+                mui.openWindow({
+                    url: "PaySuc.html?id=" + TData.msg,
+                    id: "PaySuc",
+                    show: {
+                        autoShow: true,
+                    },
+                    waiting: {}
+                })
+
+            } else {
+                alert(TData.msg);
+                $("#on").hide();
+                document.getElementById("buycardT").innerText = "点击购买吃货卡";
+                dianji();
+            }
+
+        }
+        jfpaydisabled = false;
+    }
+
+    var pp;
+    function onBridgeReady(prepay) {
+        pp = prepay.split('@');
+	        if (pp.length > 0) {
+
+	            WeixinJSBridge.invoke(
+                    'getBrandWCPayRequest', {
+                        "appId": pp[2],     //公众号名称，由商户传入     
+                        "timeStamp": pp[0],         //时间戳，自1970年以来的秒数     
+                        "nonceStr": pp[4], //随机串     
+                        "package": "prepay_id=" + pp[1],
+                        "signType": "MD5",         //微信签名方式：     
+                        "paySign": pp[3] //微信签名 
+                    },
+                    function (res) {
+                        if (res.err_msg == "get_brand_wcpay_request:ok") {
+                        	setTimeout(function(){
+                        		 $.ajax({
+								        type: "post",
+								        url: httppp+"/api/GetOrderState",
+								        data: {
+								            value:pp[5], // 将 ar中的参数统一转化成JSON数组。
+								        },
+								        success: function (rs) {
+								           if(rs){
+									           	$("#buycard").hide();
+					                            $("#sucbuy").show();
+					                            mui.openWindow({
+					                                url: "PaySuc.html?id=" + pp[5],
+					                                id: "PaySuc",
+					                                show: {
+					                                    autoShow: true,
+					                                },
+					                                waiting: {}
+					                            })
+								           }else{
+								           	alert("支付失败");
+								           }
+								        },
+								        error: function () {
+								        		alert("支付异常");
+								        }
+								    });
+                        	},200)
+                           
+                        }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+                        else {
+                            alert("支付异常");
+                        }
+                    }
+                );
+	        }
+	    }
+
+
+
+</script>
+
+</html>

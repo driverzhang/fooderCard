@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>支付成功</title>
+		<script src="//at.alicdn.com/t/font_363158_gzzscxrwqj1w0zfr.js"></script>
+		<style>
+			body,
+			p,
+			input,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			ul,
+			li,
+			dl,
+			dt,
+			dd,
+			form {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				vertical-align: middle;
+				font-weight: normal;
+			}
+			
+			* {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+			a {
+				cursor: pointer;
+				text-decoration: none;
+				color: #444;
+			}
+			
+			html,
+			body {
+				/*height: 100%;*/
+				width: 100%;
+				font-family: "微软雅黑";
+				background: whitesmoke;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.icon {
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+				color: #DDDDDD;
+				position: relative;
+				bottom: 68px;
+				left: 25px;
+			}
+			
+			img {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.imgH {
+				width: 100%;
+				height: 110px;
+			}
+			
+			.img-text {
+				color: white;
+				position: relative;
+				bottom: 70px;
+				left: 40px;
+				font-size: 18px;
+			}
+			
+			.statuA {
+				width: 94%;
+				margin: 20px 3%;
+				height: 200px;
+			}
+			
+			.statuA-text {
+				margin: 5px 10px;
+				color: #444;
+			}
+			
+			.xian1 {
+				/*margin-top: 20px;*/
+				width: 94%;
+				margin: 20px 3%;
+				border: none;
+				height: 0.5px;
+				border-top: 0.5px solid #DDDDDD;
+			}
+			
+			.footerB {
+				width: 50%;
+				float: left;
+				text-align: center;
+			}
+			
+			.Bb {
+				border: 1px solid #444;
+				border-radius: 20px;
+				padding: 5px 20px;
+			}
+		</style>
+	</head>
+
+	<body style="background: white;">
+		<div class="imgH">
+			<img src="img/zhifu.png" style="width: 100%;height: 100%;" />
+			<div id="statusText">
+
+				<svg class="icon" aria-hidden="true" style="font-size: 30px;">
+					<use xlink:href="#icon-fukuanchenggong-copy"></use>
+				</svg>
+				<span class="img-text">付款成功</span>
+			</div>
+		</div>
+		<div id="all">
+
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/MD5S.js"></script>
+	<script src="js/TravelTailorSafeInterface.js"></script>
+	<script>
+		var userID = localStorage.getItem("Id");
+		//		var CompanyImgsrc = httppp + "/Images/ExpertImg/admin/CompanyImg/";
+		var shopindex = 0;
+		//获取 url 后的参数方法。
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) return decodeURI(r[2]);
+			return null;
+		}
+		var cc = GetQueryString("id"); //商品Id
+		var c = {
+			Collection: [{
+				F: "OrderId",
+				O: "=",
+				P: "@@OrderId",
+				V: cc
+			}, ]
+		};
+		GetDate(c)
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+
+		function GetDate(f) {
+			var ar = new Array();
+			var ph = f;
+			ar.Condition = ph;
+			ar.InterfaceAddress = "api/ShopInfo";
+			ar.Name = "OrderView";
+			ar.OrderBy = "CreationDate desc";
+			ar.Index = shopindex;
+			ar.Size = 1;
+			ar.Handshake_Time = CurentTime('-', true);
+			aes(ar, "endDate");
+		}
+
+		function endDate(rs) {
+			var TData = eval("(" + rs + ")");
+			console.log(TData);
+			if(TData != "") {
+				for(var i = 0; i < TData.length; i++) {
+					var ah = '<div class="statuA"><div class="statuA-text"><span>商&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品：</span>';
+					ah += '<span>' + TData[i].ProName + '</span></div><div class="statuA-text"><span>交易时间：</span>';
+					var time = CurentTimeBydata("-", eval('new ' + eval(TData[i].CreationDate).source), true);
+					ah += '<span>' + time + '</span></div><div class="statuA-text"><span>付款金额：</span>';
+					ah += '<span style="color: #ff510f;">' + "￥" + TData[i].SellPrice + '</span></div><hr class="xian1" />';
+					ah += '<div class="footerB"><a href="dingdan-2.html?id=' + TData[i].OrderId + '&nub= ' + TData[i].Status + '"><span class="Bb">查看订单</span></a></div>';
+					ah += '<div class="footerB"><a href="index.html"><span class="Bb">返回首页</span></a></div></div>';
+					document.getElementById("all").innerHTML += ah;
+				}
+			}
+		}
+	</script>
+
+</html>

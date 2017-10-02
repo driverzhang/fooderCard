@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<title>商家详情</title>
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_363158_lh120yd5xlk81tt9.css">
+		<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/star.css" />
+		<!--<link rel="stylesheet" href="css/mui.min.css" />-->
+
+		<style>
+			body,
+			p,
+			input,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			ul,
+			li,
+			dl,
+			dt,
+			dd,
+			form {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				vertical-align: middle;
+				font-weight: normal;
+			}
+			
+			a {
+				cursor: pointer;
+				text-decoration: none;
+			}
+			/*禁止选择复制文本*/
+			
+			* {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+			html,
+			body {
+				-webkit-font-smoothing: antialiased;
+				/*chrome、safari*/
+				-moz-osx-font-smoothing: grayscale;
+				/*firefox*/
+				height: 100%;
+				width: 100%;
+				font-family: "微软雅黑";
+				/*background: #f3f4f5;*/
+				background: #f0f0f0;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.icon {
+				margin-left: 15px;
+				margin-top: 11px;
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+				color: #DDDDDD;
+			}
+			
+			img {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.focus {
+				width: 100%;
+				height: 160px;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			a {
+				color: black;
+			}
+			
+			.focus .hd {
+				width: 100%;
+				height: 11px;
+				position: absolute;
+				z-index: 1;
+				bottom: 5px;
+				text-align: center;
+			}
+			
+			.focus .hd ul {
+				display: inline-block;
+				height: 11px;
+				padding: 3px 5px;
+				background-color: transparent;
+				/*background-color: rgba(255, 255, 255, 0.7);*/
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				font-size: 0;
+				vertical-align: top;
+			}
+			
+			.focus .hd ul li {
+				display: inline-block;
+				width: 5px;
+				height: 5px;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				background: #8C8C8C;
+				margin: 0 5px;
+				vertical-align: top;
+				overflow: hidden;
+			}
+			
+			.focus .hd ul .on {
+				background: #FE6C9C;
+			}
+			
+			.focus .bd {
+				position: relative;
+				z-index: 0;
+			}
+			
+			.focus .bd li img {
+				width: 100%;
+				height: 160px;
+				background: url(img/loading.gif) center center no-repeat;
+			}
+			
+			.focus .bd li a {
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+				/* 取消链接高亮 */
+			}
+			
+			.main {
+				width: 100%;
+				/*margin-top: 50px;*/
+			}
+			
+			.textBox-inner {
+				background: white;
+				height: 40px;
+			}
+			
+			.Inner-li {
+				height: 40px;
+				padding: 0 0 0 8px;
+				/*width: 33%;*/
+				font-size: 16px;
+				color: #444;
+				float: left;
+				line-height: 40px;
+			}
+			
+			.Inner-li2 {
+				height: 40px;
+				/*padding: 0 0 0 8px;*/
+				width: 33.3%;
+				font-size: 16px;
+				color: #444;
+				float: left;
+				line-height: 40px;
+			}
+			
+			.header-title {
+				height: 50px;
+				line-height: 50px;
+				border-bottom: 1px solid #DDDDDD;
+				position: fixed;
+				top: 0;
+				z-index: 9;
+				width: 100%;
+				background: white;
+				text-align: center;
+			}
+			
+			.header-left {
+				z-index: 99;
+				position: fixed;
+				float: left;
+			}
+			
+			.header-center {
+				font-size: 20px;
+			}
+			
+			.nameAddress {
+				font-size: 18px;
+				padding: 15px 10px 5px 10px;
+			}
+			
+			.shopAddress {
+				font-size: 16px;
+			}
+			
+			.xian {
+				/*margin-left: 4%;*/
+				width: 100%;
+				margin-top: 0px;
+				border: none;
+				height: 1px;
+				border-top: 1px solid #DDDDDD;
+			}
+			
+			.xian1 {
+				width: 100%;
+				border: none;
+				height: 0.2px;
+				border-top: 0.2px solid transparent;
+			}
+			
+			.head-center01 {
+				padding: 11px 0;
+				margin-left: 10%;
+				border-bottom: 1px solid #eee;
+				position: relative;
+			}
+			
+			.pic-in {
+				/*关键CSS用于关键定位点*/
+				float: left;
+				width: 27%;
+				padding-top: 22%;
+				position: relative;
+				display: block;
+			}
+			
+			.pic-in-1 {
+				left: 0;
+				top: 0;
+				width: 100%;
+				position: absolute;
+				height: 100%;
+			}
+			
+			.text_box {
+				/*关键CSS用于关键定位点*/
+				margin-left: 30%;
+				position: relative;
+				margin-right: 3.5%;
+				padding-top: 22%;
+				/*关键CSS用于关键定位点，可以控制div高度，与width定我百分或确定值时*/
+			}
+			
+			.text_box_dec {
+				position: absolute;
+				top: 2px;
+			}
+			
+			.tex_boc_bot1 {
+				position: absolute;
+				bottom: 0;
+			}
+			
+			.text_dec_top {
+				font-size: 14px;
+				color: black;
+				word-break: break-all;
+				text-overflow: ellipsis;
+				/*显示省略符号*/
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				/*从上向下垂直排列子元素。*/
+				-webkit-line-clamp: 1;
+				overflow: hidden;
+			}
+			
+			.more {
+				text-align: center;
+				font-size: 14px;
+				color: #444;
+				border: 1px solid #BEBBBB;
+				border-right: none;
+				border-left: none;
+				width: 20%;
+				margin: 5px 40%;
+			}
+			
+			.PL-biaoqianText {
+				width: 90%;
+				padding: 0 5%;
+				background: white;
+				/*height: 100px;*/
+				float: left;
+				padding-bottom: 5px;
+			}
+			
+			.PL-biaoqianText-in {
+				font-size: 12px;
+				color: #F6942A;
+				border: 1px solid #F6942A;
+				border-radius: 2px;
+				padding: 2px 5px;
+			}
+			
+			.PL-biaoqianText-in2 {
+				font-size: 12px;
+				color: #444;
+				border: 1px solid #BEBBBB;
+				border-radius: 2px;
+				padding: 2px 5px;
+				margin-top: 1px;
+			}
+			
+			.PL-kuang {
+				float: left;
+				background: white;
+				margin: 3px;
+			}
+			
+			.PL-img {
+				float: left;
+				width: 50px;
+				height: 50px;
+				margin-left: 10px;
+			}
+			
+			.PL-img-text {
+				float: left;
+				margin-left: 10px;
+			}
+			
+			.PL-nc {
+				font-size: 14px;
+			}
+			
+			.PL-time {
+				margin-top: 10px;
+				font-size: 12px;
+				color: #8A8A8A;
+			}
+			
+			.PL-footer-dec {
+				height: 60px;
+				padding-top: 10px;
+				clear: left;
+			}
+			
+			.PL-text-img {
+				margin: 3px;
+				float: left;
+				height: 70px;
+				width: 80px;
+				margin-top: 10px;
+			}
+			
+			.star-vote {
+				margin-top: 7px;
+				/*margin-left: 100px;*/
+				width: 120px;
+				height: 20px;
+				position: absolute;
+				right: 0;
+				overflow: hidden;
+			}
+			
+			.star-vote>span {
+				position: absolute;
+				width: 120px;
+				height: 20px;
+				background-size: 70%;
+				background-repeat: no-repeat;
+				left: 0px;
+				top: 0px;
+			}
+			
+			.star-vote>.add-star {
+				background-image: url("img/star1.png");
+			}
+			
+			.star-vote>.del-star {
+				background-image: url("img/star2.png");
+				background-color: white;
+			}
+			
+			.pingjia {
+				background: white;
+				margin-bottom: 3px;
+				padding-bottom: 10px;
+			}
+			
+			.icon-dh {
+				position: absolute;
+				left: 20px;
+			}
+			
+			.selected {
+				color: #F6942A;
+			}
+			
+			.mapT {
+				cursor: pointer;
+				line-height: 40px;
+				text-align: center;
+				width: 40px;
+				height: 40px;
+				color: white;
+				z-index: 99999;
+				border: 1px solid #8C8C8C;
+				background: #F69429;
+				border-radius: 40px;
+				position: fixed;
+				bottom: 20px;
+				right: 20%;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<!--<div class="header-title">
+			<div class="header-left">
+				<a href="javascript:window.history.back();">
+					<i class="iconfont icon-houtui" style="font-size: 30px;"></i>
+				</a>
+			</div>
+			<div class="header-center">
+				<span>商家详情</span>
+			</div>
+		</div>-->
+		<div class="main" id="mainT">
+			<!--开始轮播部分-->
+			<!--商铺表-->
+			<div class="head-box" id="LB">
+				<div id="focus" class="focus">
+
+					<div class="hd" style="display: none;">
+						<ul></ul>
+					</div>
+					<div class="bd">
+						<ul id="BoxImg">
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="main-text" id="mainText">
+
+			</div>
+
+			<!--产品表-->
+			<div class="tuijian" style="background: white; height: auto; margin-top: 8px;">
+				<div id="tuijianShop">
+					<!--<a href="#">-->
+					<div class="textBox-inner" style="text-align: center;">
+						<li class="Inner-li2 selected" data="1">商 品</li>
+						<li class="Inner-li2 " data="2">评 价</li>
+						<li class="Inner-li2 " data="3">商 家</li>
+					</div>
+					<!--</a>-->
+					<hr class="xian" />
+				</div>
+				<div>
+					<div id="shopFood" class="kk" style="margin-top: -20px;">
+
+					</div>
+					<div class="kk" style="display: none;">
+						<!--<div class="pinglun kk" id="SpinglunH" style="margin-top: 8px;" style="margin-top: -20px;"></div>-->
+						<div style="height: 100%;" id="Spinglun">
+						</div>
+						<div id="pinglunF"></div>
+					</div>
+					<div id="shopText" class="kk" style="margin-top: -20px;display: none;padding: 10px;">
+					</div>
+				</div>
+			</div>
+			<!--<div class="pinglun" id="SpinglunH" style="margin-top: 8px;">-->
+			<!--<a href="#">
+					<div class="textBox-inner" style="padding-top: 7px;padding-left: 10px;">
+						<li class="Inner-li ">评论（850）</li>
+						<i class="iconfont icon-xiangyou" style="font-size: 25px;float: right;color:#ACACB4; margin-top: 7px;"></i>
+					</div>
+				</a>-->
+			<!--<div class="PL-biaoqian" style="background: white;float: left;">
+						<div class="PL-biaoqianText">
+							<div class="PL-kuang">
+								<span class="PL-biaoqianText-in">味道不错(133)</span>
+							</div>
+							<div class="PL-kuang">
+								<span class="PL-biaoqianText-in">味道还行(100)</span>
+							</div>
+							<div class="PL-kuang">
+								<span class="PL-biaoqianText-in">服务态度好(80)</span>
+							</div>
+							<div class="PL-kuang">
+								<span class="PL-biaoqianText-in">生意不错(90)</span>
+							</div>
+							<div class="PL-kuang">
+								<span class="PL-biaoqianText-in">味道很好(44)</span>
+							</div>
+							<div class="PL-kuang">
+								<span class="PL-biaoqianText-in2">分量小(30)</span>
+							</div>
+							<div class="PL-kuang">
+								<span class="PL-biaoqianText-in2">味道差(30)</span>
+							</div>
+							<div class="PL-kuang">
+								<span class="PL-biaoqianText-in2">不卫生(31)</span>
+							</div>
+						</div>
+					</div>-->
+			<!--</div>-->
+			<!--<div style="height: 100%;" id="Spinglun">-->
+			<!--<hr class="xian1" />-->
+			<!--<div id="pingjia">
+					<div class="PL-footer" style="background: white;height: 300px;">
+						<div class="PL-footer-dec">
+
+							<div class="PL-img">
+								<img src="img/touxiang.png" style="width: 100%;height: 100%;" />
+							</div>
+
+							<div class="PL-img-text">
+								<div class="PL-nc">dreiverzhang</div>
+								<div class="PL-time">2016-12-06</div>
+							</div>
+
+							<div id="star_con" class="star-vote star_con">
+								<span id="add_star" class="add-star"></span>
+								<span id="del_star" class="del-star"></span>
+							</div>
+						</div>
+
+						<div class="PL-text" style="margin-left: 10px;margin-right: 10px; font-size: 14px;">
+							<div class="PL-wenzi" style="clear: left;">
+								环境还可以就是味道太辣了
+							</div>
+
+							<div class="PL-text-img">
+								<img src="img/huoguo.png" style="width: 100%;height: 100%;" />
+							</div>
+							<div class="PL-text-img">
+								<img src="img/huoguo.png" style="width: 100%;height: 100%;" />
+							</div>
+							<div class="PL-text-img">
+								<img src="img/huoguo.png" style="width: 100%;height: 100%;" />
+							</div>
+
+						</div>
+					</div>
+					<hr class="xian1" />
+				</div>
+				<div id="pingjia">-->
+			<!--<div class="PL-footer" style="background: white;height: 300px;">
+						<div class="PL-footer-dec">
+
+							<div class="PL-img">
+								<img src="img/touxiang.png" style="width: 100%;height: 100%;" />
+							</div>
+
+							<div class="PL-img-text">
+								<div class="PL-nc">dreiverzhang</div>
+								<div class="PL-time">2016-12-06</div>
+							</div>
+
+							<div id="star_con" class="star-vote star_con">
+								<span id="add_star" class="add-star"></span>
+								<span id="del_star" class="del-star"></span>
+							</div>
+						</div>
+
+						<div class="PL-text" style="margin-left: 10px;margin-right: 10px; font-size: 14px;">
+							<div class="PL-wenzi" style="clear: left;">
+								环境还可以就是味道太辣了
+							</div>
+
+							<div class="PL-text-img">
+								<img src="img/huoguo.png" style="width: 100%;height: 100%;" />
+							</div>
+							<div class="PL-text-img">
+								<img src="img/huoguo.png" style="width: 100%;height: 100%;" />
+							</div>
+							<div class="PL-text-img">
+								<img src="img/huoguo.png" style="width: 100%;height: 100%;" />
+							</div>
+
+						</div>
+					</div>
+					<hr class="xian1" />
+				</div>-->
+
+			<!--</div>-->
+			<!--<div id="pinglunF">-->
+			<!--<a href="#">
+					<div class="textBox-inner">
+						<li class="Inner-li" style="font-size: 14px;color: #8F8F94;">查看全部评论 </li>
+						<i class="iconfont icon-xiangyou" style="font-size: 22px;float: right;margin-top: 10px;color: #4444;"></i>
+					</div>
+				</a>-->
+			<!--</div>-->
+		</div>
+		<div id="container" style="display: none;width: 100%;height: 100%;">
+			<div class="mapT">返回</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/MD5S.js"></script>
+		<script src="js/TravelTailorSafeInterface.js"></script>
+		<script src="js/star.js"></script>
+		<script src="js/TouchSlide.1.1.js"></script>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=7eb4af60c3683b71c186b6abcdae7e3a&plugin=AMap.Driving"></script>
+		<!--<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>-->
+		<script src="js/gclNewClub.js"></script>
+
+		<script>
+			//获取 url 后的参数方法。
+			function GetQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return unescape(r[2]);
+				return null;
+			}
+			var cc = GetQueryString("id"); //商铺Id
+			//			alert(cc);
+			var CompanyImgsrc = httppp + "/Images/ExpertImg/admin/CompanyImg/";
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var shopindex = 0;
+			var lat = localStorage.getItem("lat");
+			var lng = localStorage.getItem("lng");
+			var nc = localStorage.getItem("nc");
+			var LONG, Dismen, data;
+			var $li = $("div#tuijianShop li");
+
+			//判断是否获取经纬度
+			if(lat == null || lat == undefined || lat == "") {
+				// 调用高德地图
+				gclmap.init(undefined, undefined, true, "mapback");
+
+				function mapback(rs) {
+					if(rs.position == undefined) {
+						lat = localStorage.setItem("lat", "28.750334");
+						lng = localStorage.setItem("lng", "104.605221");
+						return;
+					} else if(rs.position.lat != null && rs.position.lat != undefined) {
+						lat = localStorage.setItem("lat", rs.position.lat);
+						lng = localStorage.setItem("lng", rs.position.lng);
+					} else {
+						lat = localStorage.setItem("lat", "28.750334");
+						lng = localStorage.setItem("lng", "104.605221");
+					}
+				}
+			}
+			//若没有获取 用户的经纬度。
+			function getPosition() {
+				// 调用高德地图
+				gclmap.init(undefined, undefined, true, "mapback");
+
+				function mapback(rs) {
+					if(rs.position == undefined) {
+						lat = localStorage.setItem("lat", "28.750334");
+						lng = localStorage.setItem("lng", "104.605221");
+						return;
+					} else if(rs.position.lat != null && rs.position.lat != undefined) {
+						lat = localStorage.setItem("lat", rs.position.lat);
+						lng = localStorage.setItem("lng", rs.position.lng);
+					} else {
+						lat = localStorage.setItem("lat", "28.750334");
+						lng = localStorage.setItem("lng", "104.605221");
+					}
+				}
+				$('.JW').each(function() {
+					var lnglat = new AMap.LngLat(lng, lat); // a, b 为 用户定位获取得经度、维度  
+					LONG = $(this).attr('LONG');
+					Dismen = $(this).attr('Dismen');
+					var dis = lnglat.distance([LONG, Dismen]); // c, d为商铺提供的经纬度  
+
+					if(dis / 1000 > 1) {
+						var ddis = Math.round(parseFloat(dis / 1000) * 100) / 100;
+						dis = ddis + " km";
+					} else {
+						dis = parseInt(dis) + " m";
+					}
+					$(this).html(dis);
+				})
+			}
+
+			if(cc != "" && cc != null && cc != undefined) {
+				setTimeout(function() {
+					var ph = {
+						Collection: [{
+							F: "ChildrenId",
+							O: "%",
+							P: "@@ChildrenId",
+							V: cc
+						}, ]
+					};
+					var ar = new Array();
+					ar.Condition = ph;
+					ar.InterfaceAddress = "api/ShopInfo";
+					ar.Name = "TAccessImg";
+					ar.OrderBy = "CreationDate desc";
+					ar.Index = shopindex;
+					ar.Size = 10;
+					ar.Handshake_Time = CurentTime('-', true);
+					aes(ar, "endpingjia");
+				}, 200)
+			}
+
+			function endpingjia(rs) {
+				var TData = eval("(" + rs + ")");
+				//				debugger;
+				console.log(TData);
+				if(TData.length > 0) {
+					//					var ah = '<a href="morePL.html?id=' + TData[0].ChildrenId + '"><div class="textBox-inner" style="padding-top: 7px;padding-left: 10px;">';
+					//					ah += '<li class="Inner-li ">' + "评论（" + TData.length + "）" + '</li><i class="iconfont icon-xiangyou" style="font-size: 25px;float: right;color:#ACACB4;"></i></div></a>';
+					//					document.getElementById("SpinglunH").innerHTML += ah;
+					var keyid = "";
+					for(var i = 0; i < TData.length; i++) {
+						if(TData[i].Id == keyid) {
+							if(TData[i].imgsId == null || TData[i].imgsId == undefined || TData[i].imgsId == "") {
+
+							} else {
+								var pc = document.createElement("div");
+								pc.className = "PL-text-img";
+								var pic = httppp + "/Images/ExpertImg/admin/pinglun/" + TData[i].imgsId + "_80x80.jpg";
+								var accessimg = document.createElement("img");
+								accessimg.src = pic;
+								accessimg.style.width = "80px";
+								accessimg.style.height = "70px";
+								pc.appendChild(accessimg);
+								document.getElementById(TData[i].Id).appendChild(pc);
+								//								showStar(starnumb);
+							}
+						} else {
+							keyid = TData[i].Id;
+							var bh = '<div class="pingjia"><div class="PL-footer" style="background: white;padding-bottom: 10px;"><div class="PL-footer-dec">';
+							bh += '<div class="PL-img"><img src="' + TData[i].headsrc + '" style="width: 100%;height: 100%;border-radius: 40px;" /></div>';
+							var time = CurentTimeBydata("-", eval('new ' + eval(TData[i].CreationDate).source), true);
+							bh += '<div class="PL-img-text"><div class="PL-nc">' + TData[i].NC + '</div><div class="PL-time">' + time + '</div></div>';
+							bh += '<div style="text-align: right;margin-right:10px"><input disabled="disabled"  style="font-size: 1rem;" value="' + TData[i].CommentStars + '" type="number" class="rating form-control" min="0" max="5" step="0.1" data-size="lg"></div>';
+
+							bh += '<div class="PL-text" style="margin-left: 10px;margin-right: 10px;margin-top:20px; font-size: 14px;float: left;"><div class="PL-wenzi" style="clear: left;">' + TData[i].CommentInfo + '</div>';
+							var pic = httppp + "/Images/ExpertImg/admin/pinglun/" + TData[i].imgsId + "_80x80.jpg";
+							if(TData[i].imgsId == null || TData[i].imgsId == undefined || TData[i].imgsId == "") {
+
+							} else {
+								bh += '<div  id="' + TData[i].Id + '" style="width:100%;height:100%;"><div class="PL-text-img"><img src="' + pic + '" style="width: 100%;height: 100%;" /></div></div>';
+							}
+
+							bh += '</div></div><hr class="xian1" /></div>';
+							document.getElementById("Spinglun").innerHTML += bh;
+
+						}
+
+					}
+					$('.rating').rating();
+					$('.rating-lg').attr("style", "font-size:1.2rem;");
+					$('.caption').remove();
+					$('.clear-rating').remove();
+					var ch = '<a href="morePL.html?id=' + TData[0].ChildrenId + '"><div class="textBox-inner"><li class="Inner-li" style="font-size: 14px;color: #8F8F94;">查看全部评论 </li>';
+					ch += '<i class="iconfont icon-xiangyou" style="font-size: 22px;float: right;margin-top: 10px;color: #4444;"></i></div></a>';
+					document.getElementById("pinglunF").innerHTML += ch;
+
+				} else {
+					//			暂时没有评论!
+				}
+			}
+
+			//	showStar(4);
+			//n表示后台获取的星数
+			//			function showStar(n) {
+			//
+			//				var nn = document.getElementsByClassName("star_con");
+			//				for(var i in nn) {
+			//					if(i != undefined) {
+			//						var starnum = document.getElementsByClassName("star_con")[i].getAttribute("star");
+			//						var con_wid = document.getElementsByClassName("star_con")[i].offsetWidth;
+			//						var del_star = document.getElementsByClassName("del_star")[i];
+			//						var del_move = (starnum * con_wid) / 7;
+			//
+			//						del_star.style.backgroundPosition = -del_move + "px 0px";
+			//						del_star.style.left = del_move + "px";
+			//					}
+			//				}
+			//				//				alert(con_wid);
+			//
+			//				//				console.log(con_wid);
+			//				//透明星星移动的像素
+			//
+			//			}
+
+			$(document).ready(function() {
+				setTimeout(function() {
+					var ph = {
+						Collection: [{
+							F: "KeyId",
+							O: "%",
+							P: "@@KeyId",
+							V: cc
+						}, ]
+					};
+					lunboimg(ph, "Imgs");
+				}, 200)
+			});
+
+			function lunboimg(p, a) {
+				var ar = new Array();
+				var ph = p;
+				ar.Condition = ph;
+				ar.InterfaceAddress = "api/ShopInfo";
+				ar.Name = a;
+				//				ar.Name = "Imgs";
+				ar.OrderBy = "CreationDate desc";
+				ar.Index = 0;
+				ar.Size = 10;
+				ar.Handshake_Time = CurentTime('-', true);
+				aes(ar, "endImg");
+			}
+
+			function endImg(rd) {
+				var TData = eval("(" + rd + ")");
+				//				debugger;
+				if(TData != "") {
+					for(var i = 0; i < TData.length; i++) {
+
+						var uil = '<li><a href="javascript:void(0);">';
+						uil += '<img _src="' + CompanyImgsrc + TData[i].Id + '_750x360.jpg" src="img/blank.png"  alt="">';
+						uil += '</a></li>';
+						document.getElementById("BoxImg").innerHTML += uil;
+					}
+				} else {
+					var uil = '<li><a href="javascript:void(0);">';
+					uil += '<img _src="img/wutu.png" src="img/blank.png"  alt="">';
+					uil += '</a></li>';
+					document.getElementById("BoxImg").innerHTML += uil;
+				}
+
+				TouchSlide({
+					slideCell: "#focus",
+					titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层  导航元素对象，鼠标触发元素即原标图点等。
+					mainCell: ".bd ul", //要轮播的内容 图片
+					effect: "leftLoop", //轮播方向 向左循环滚动
+					autoPlay: true, //自动播放
+					autoPage: true, //自动分页
+					delayTime: 800, // 切换图片的延迟时间。 默认为200.
+					interTime: 2500, // 图片停留的时间，即各多少时间开始下一张图，默认为2500.
+					switchLoad: "_src" //切换加载，真实图片路径为"_src" 
+				});
+
+				var p = {
+					Collection: [{
+						F: "Id",
+						O: "=",
+						P: "@@Id",
+						V: cc
+					}]
+				};
+
+				BindProData(p, "ProductShopView", "endPCUserIdData", 20);
+
+			}
+			mui.plusReady(function() {
+				mui.currentWebview.show(); //显示当前页面
+			});
+
+			function BindProData(a, b, c, d) {
+				var ar = new Array();
+				var ph = a;
+				ar.Condition = ph;
+				ar.InterfaceAddress = "api/ShopInfo"; //查询接口通用一致
+				ar.name = b; //店铺表名
+				ar.OrderBy = "CreationDate desc";
+				ar.Index = shopindex + 0;
+				ar.Size = d;
+				ar.Handshake_Time = CurentTime('-', true);
+				aes(ar, c);
+			}
+
+			function endPCUserIdData(rs) {
+				var TData = eval("(" + rs + ")");
+				console.log(TData);
+				if(TData != "") {
+					shopindex++;
+					if(lng != null && lat != null && TData[0].LONG != "" && TData[0].Dismension != "") {
+						var lnglat = new AMap.LngLat(lng, lat); // a, b 为 用户定位获取得经度、维度  
+						var dis = lnglat.distance([TData[0].LONG, TData[0].Dismension]); // c, d为商铺提供的经纬度  
+						if(dis / 1000 > 1) {
+							var ddis = Math.round(parseFloat(dis / 1000) * 100) / 100;
+							dis = ddis + " km";
+						} else {
+							dis = parseInt(dis) + " m";
+						}
+					} else { //若没有获取 用户的经纬度。
+						getPosition();
+					}
+
+					var bhtml = '<div id="' + TData[0].Id + '"><div class="nameAddress" style="background: white;">';
+					bhtml += '<div style= "margin-left:10px;"><span class="shopName">' + TData[0].StopName + '</span>';
+					bhtml += '<span class="shopAddress" style= "color:#808080"> ' + "(" + TData[0].MerAddress + ")" + '</span></div></div>';
+					bhtml += '<a onclick="drivermap()"><div class="textBox-inner" style="margin-top: 1px;padding-left: 10px;">';
+					bhtml += '<i class="iconfont icon-juli2" style="font-size: 25px;float: left;color: #808080;margin-top: 7px;margin-left: 5px;"></i>';
+					bhtml += '<li class="Inner-li JW"  LONG=" ' + TData[0].LONG + '"  Dismen =" ' + TData[0].Dismension + '" > ' + " 距离您 " + dis + ' </li>';
+
+					bhtml += '<i class="iconfont icon-xiangyou" style="font-size: 22px;float: right;margin-top: 10px;color: #4444;"></i></div></a>';
+					bhtml += '<div class="textBox-inner" style="margin-top: 1px;padding-left: 10px;"><a href="tel:' + TData[0].ShopPhone + '">';
+					bhtml += '<i class="iconfont icon-dh" style="font-size: 25px;color: #F6942A;margin-top: 4px;"></i>';
+					bhtml += '<li class="Inner-li "> ' + TData[0].ShopPhone + ' </li>';
+					bhtml += '<i class="iconfont icon-xiangyou" style="font-size: 22px;float: right;margin-top: 10px;color: #4444;"></i></a></div></div>';
+					document.getElementById("mainText").innerHTML += bhtml;
+					LONG = TData[0].LONG;
+					Dismen = TData[0].Dismension;
+					var ll = TData[0].Introduction;
+					document.getElementById("shopText").innerHTML += ll;
+					//					puchShop.html?id=' + TData[0].Id + '
+					//					var dhtml = '<div class="textBox-inner" style="text-align: center;">';
+					//					dhtml += '<li class="Inner-li2 selected" data="1">商 品</li><li class="Inner-li2 " data="2">评 价</li><li class="Inner-li2 " data="3">商 家</li>';
+					//					dhtml += '</div><hr class="xian" />';
+					//					document.getElementById("tuijianShop").innerHTML += dhtml;
+
+					for(var i = 0; i < TData.length; i++) {
+						var imgc = httppp + '/Images/ExpertImg/admin/CompanyImg/' + TData[i].proId + '_80x80.jpg';
+						var chtml = '<a href="shopText-shop.html?id=' + TData[i].proId + '&pd=' + TData[i].ProPhotosId + '&sp=' + TData[i].MercharID + '"><div class="head-center01"><div class="pic-in">';
+						chtml += '<img class="pic-in-1" src="' + imgc + '" /></div>';
+						chtml += '<div class="text_box"><div class="text_box_dec">';
+						chtml += '<span class="text_dec_top">' + TData[i].ProName + '</span></div>';
+						chtml += '<div class="tex_boc_bot1"><span style="color: red;font-size: 14px;">' + "￥" + TData[i].proprice + ' </span></div></div></div></a>';
+						document.getElementById("shopFood").innerHTML += chtml;
+					}
+				}
+			}
+			//			mui.init({
+			//				pullRefresh: {
+			//					container: '#shopFood', //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+			//					up: {
+			//						height: 50, //可选.默认50.触发上拉加载拖动距离
+			//						auto: true, //可选,默认false.自动上拉加载一次
+			//						contentrefresh: "正在加载...", //可选，正在加载状态时，上拉加载控件上显示的标题内容
+			//						contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
+			//						callback: BProData() //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+			//					}
+			//				}
+			//			});
+			//			var page = 1;
+			//			function BProData() {
+			//				var ar = new Array();
+			//				var ph = {
+			//					Collection: [{
+			//						F: "Id",
+			//						O: "=",
+			//						P: "@@Id",
+			//						V: cc
+			//					}]
+			//				};
+			//				ar.Condition = ph;
+			//				ar.InterfaceAddress = "api/ShopInfo"; //查询接口通用一致
+			//				ar.name = "ProductShopView"; //店铺表名
+			//				ar.OrderBy = "CreationDate desc";
+			//				ar.Index = shopindex + 0;
+			//				ar.Size = 2;
+			//				ar.Handshake_Time = CurentTime('-', true);
+			//				aes(ar, "endPCUserIdData");
+			//				page += 1;
+			////				this.endPullupToRefresh(false);
+			//			}
+			$(function() {
+				$li.click(function() {
+					//				alert(1);
+					$(this).addClass("selected")
+						.siblings() //排除自身的同辈元素
+						.removeClass("selected");
+					var index = $li.index(this); // 添加索引 好对应显示DIV内容
+					$(".kk")
+						.eq(index).show()
+						.siblings().hide();
+				});
+			});
+			var mapf = false;
+			function mapabc() {
+				if(!mapf) {
+					mapf = true;
+					// 调用高德地图
+					gclmap.init(undefined, undefined, true, "mapback");
+
+					function mapback(rs) {
+						if(rs.position == undefined) {
+							lat = localStorage.setItem("lat", "28.750334");
+							lng = localStorage.setItem("lng", "104.605221");
+							return;
+						} else if(rs.position.lat != null && rs.position.lat != undefined) {
+							lat = localStorage.setItem("lat", rs.position.lat);
+							lng = localStorage.setItem("lng", rs.position.lng);
+						} else {
+							lat = localStorage.setItem("lat", "28.750334");
+							lng = localStorage.setItem("lng", "104.605221");
+						}
+					}
+					gclmap.mapdriving(lng, lat, LONG, Dismen);
+					gclmap.removeGG();
+					$(".amap-toolbar").eq(0).hide();
+				}
+				
+			}
+
+			function drivermap() {
+				$("#mainT").hide();
+				$("#container").show();
+				//强行令它只加载调用一次。
+				mapabc(); 
+			}
+
+			$(".mapT").click(function() {
+				$("#container").toggle();
+				$("#mainT").toggle();
+			})
+		</script>
+
+	</body>
+
+</html>

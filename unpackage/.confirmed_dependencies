@@ -1,0 +1,114 @@
+{
+  "zhuce.html": {
+    "href": "zhuce.html",
+    "resources": [
+      "js/jquery.min.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "forget-pass.html": {
+    "href": "forget-pass.html",
+    "resources": [
+      "js/jquery.min.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "login.html": {
+    "href": "login.html",
+    "resources": [
+      "img/yemian.png",
+      "js/jquery.min.js"
+    ],
+    "refer": [
+      "zhuce.html",
+      "forget-pass.html"
+    ],
+    "priority": 0
+  },
+  "about-us.html": {
+    "href": "about-us.html",
+    "priority": 0
+  },
+  "shezhi.html": {
+    "href": "shezhi.html",
+    "resources": [
+      "js/mui.min.js"
+    ],
+    "refer": [
+      "login.html",
+      "about-us.html"
+    ],
+    "priority": 0
+  },
+  "person.html": {
+    "href": "person.html",
+    "resources": [
+      "css/iconfont.css",
+      "img/beijing.png",
+      "img/touxiang.png"
+    ],
+    "refer": [
+      "shezhi.html",
+      "index.html",
+      "shopping.html",
+      "boomshaklak.html",
+      "login.html"
+    ],
+    "priority": 0
+  },
+  "boomshaklak.html": {
+    "href": "boomshaklak.html",
+    "resources": [
+      "css/iconfont.css",
+      "img/1.png",
+      "img/sao.png"
+    ],
+    "refer": [
+      "index.html",
+      "shopping.html",
+      "person.html"
+    ],
+    "priority": 0
+  },
+  "shopping.html": {
+    "href": "shopping.html",
+    "resources": [
+      "js/jquery.min.js",
+      "img/1.jpg"
+    ],
+    "refer": [
+      "index.html",
+      "shopping.html",
+      "boomshaklak.html",
+      "person.html"
+    ],
+    "priority": 0
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [
+      "img/loading.gif",
+      "js/TouchSlide.1.1.js",
+      "css/iconfont.css",
+      "img/shuiguo.png",
+      "img/shuiguo2.png",
+      "img/shuigo.png",
+      "img/huoguo.png",
+      "img/wanle.png",
+      "img/wanshua.png",
+      "img/banner02.png",
+      "img/blank.png",
+      "img/05.png",
+      "img/07.png"
+    ],
+    "refer": [
+      "index.html",
+      "shopping.html",
+      "boomshaklak.html",
+      "person.html"
+    ],
+    "priority": 0
+  }
+}

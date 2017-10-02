@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<!--<link rel="stylesheet" href="css/mui.min.css" />-->
+		<title>申请退款</title>
+		<script src="//at.alicdn.com/t/font_363158_ellzcfgg268byb9.js"></script>
+		<style>
+			body,
+			p,
+			input,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			ul,
+			li,
+			dl,
+			dt,
+			dd,
+			form {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				vertical-align: middle;
+				font-weight: normal;
+			}
+			
+			a {
+				cursor: pointer;
+				text-decoration: none;
+			}
+			
+			* {
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+			html,
+			body {
+				/*height: 100%;*/
+				width: 100%;
+				font-family: "微软雅黑";
+				background: whitesmoke;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			img {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.xian1 {
+				width: 100%;
+				border: none;
+				height: 1px;
+				border-top: 1px solid whitesmoke;
+			}
+			
+			input {
+				float: left;
+				outline: medium;
+				border: none;
+				width: 55%;
+				line-height: 30px;
+				font-size: 16px;
+				text-align: left;
+				overflow: inherit;
+				cursor: pointer;
+			}
+			
+			textarea {
+				padding: 5px 0;
+				padding-left: 4%;
+				width: 100%;
+				height: 100px;
+				outline: medium;
+				text-align: left;
+				font-size: 16px;
+				color: #444;
+				margin-top: 8px;
+				border: none;
+			}
+			
+			.footer-down {
+				height: 40px;
+				line-height: 2.5;
+				border-radius: 5px;
+				width: 90%;
+				margin: 20px 5%;
+				text-align: center;
+				background: #ff5500;
+				color: whitesmoke;
+				font-size: 16px;
+			}
+			
+			.head-center01 {
+				padding: 10px 0;
+				padding-left: 4%;
+				border-bottom: 1px solid #eee;
+				position: relative;
+				background: white;
+			}
+			
+			.pic-in {
+				/*关键CSS用于关键定位点*/
+				float: left;
+				width: 24%;
+				padding-top: 22%;
+				position: relative;
+				display: block;
+			}
+			
+			.pic-in-1 {
+				left: 0;
+				top: 0;
+				width: 100%;
+				position: absolute;
+				height: 100%;
+			}
+			
+			.text_box {
+				/*关键CSS用于关键定位点*/
+				margin-left: 27%;
+				position: relative;
+				margin-right: 27%;
+				padding-top: 22%;
+				/*关键CSS用于关键定位点，可以控制div高度，与width定我百分或确定值时*/
+			}
+			
+			.text_box_dec {
+				position: absolute;
+				top: 0;
+			}
+			
+			.tex_boc_bot1 {
+				position: absolute;
+				bottom: 0;
+			}
+			
+			.text_dec_top {
+				font-size: 14px;
+				color: black;
+				word-break: break-all;
+				text-overflow: ellipsis;
+				/*显示省略符号*/
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				/*从上向下垂直排列子元素。*/
+				-webkit-line-clamp: 2;
+				overflow: hidden;
+			}
+			
+			.Tmoney {
+				margin-top: 8px;
+				background: white;
+				padding: 5px 0;
+				padding-left: 4%;
+				height: 30px;
+				width: 100%;
+				line-height: 40px;
+			}
+			
+			.head-box {
+				margin-top: 8px;
+				width: 100%;
+				background: white;
+				height: 30px;
+				padding: 5px 0;
+				cursor: pointer;
+			}
+			
+			.box-sp {
+				float: left;
+				width: 27%;
+				padding-left: 4%;
+				line-height: 30px;
+			}
+			
+			.icon {
+				margin-bottom: 2px;
+				width: 1.4em;
+				height: 2em;
+				vertical-align: 0.15em;
+				fill: currentColor;
+				overflow: hidden;
+				color: #ACACB4;
+				margin-left: 20px;
+			}
+			
+			#on {
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.42);
+				position: fixed;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			
+			#up04 {
+				width: 100% height: 380px;
+				background: white;
+				background-size: 100% 100%;
+				position: fixed;
+				bottom: 0;
+				z-index: 2222;
+				text-align: center;
+			}
+			
+			.up-text {
+				margin-top: 10px;
+				color: #8F8F94;
+				text-align: left;
+				padding-left: 20px;
+				border-bottom: 0.3px solid #CCCCCC;
+				border-top: 0.3px solid #CCCCCC;
+				line-height: 3;
+				cursor: pointer;
+			}
+			
+			.up-text2 {
+				color: #8F8F94;
+				text-align: left;
+				padding-left: 20px;
+				border-bottom: 0.3px solid #CCCCCC;
+				/*border-top: 0.5px solid #ACACB4;*/
+				line-height: 3;
+				cursor: pointer;
+			}
+			
+			.gou {
+				color: #F6942A;
+				background: bisque;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="head-center01">
+			<div class="pic-in"><img class="pic-in-1" id="imgP" src="img/blank.png" /></div>
+			<div class="text_box">
+				<div class="text_box_dec"><span class="text_dec_top" id="nameT">产品名称</span></div>
+				<!--<div class="tex_boc_bot1"><span style="color:#8F8F94;font-size: 10px;">准确订单时间 </span></div>-->
+			</div>
+		</div>
+		<div class="Tmoney">
+			退款方式：<span> 全额实时退款</span>
+		</div>
+		<div class="head-box" id="why">
+			<div class="box-sp">
+				<span>退款原因：</span>
+			</div>
+			<input type="text" id="whytui" placeholder="请选择退款理由" disabled="disabled" />
+			<svg class="icon" aria-hidden="true" style="font-size: 18px;color: #444;">
+				<use xlink:href="#icon-xiangyou"></use>
+			</svg>
+		</div>
+		<textarea placeholder="请输入详细原因，便于商家了解情况。"></textarea>
+
+		<div class="footer-down">
+			<span id="tijiao">提 交</span>
+		</div>
+		<div id="on">
+			<div id="up04" style="width: 100%;">
+				<div style="color: #444;width: 100%;margin-top: 10px;margin-right: 300px;">退款原因</div>
+				<div class="up-text2">我不想要了</div>
+				<div class="up-text2">买多、买错了</div>
+				<div class="up-text2">无法预约了</div>
+				<div class="up-text2">联系不上商家</div>
+				<div class="up-text2">计划有变，没时间消费</div>
+				<div class="up-text2">商家营业但不接待</div>
+				<div class="up-text2">商家说可以直接以折后价格到点消费</div>
+				<!--<div style="color: black;z-index: 22;margin-top: 20px;"></div>-->
+			</div>
+
+		</div>
+
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/MD5S.js"></script>
+	<script src="js/TravelTailorSafeInterface.js"></script>
+	<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=7eb4af60c3683b71c186b6abcdae7e3a&plugin=AMap.Autocomplete,AMap.PlaceSearch,AMap.Geocoder"></script>
+	<script src="js/TouchSlide.1.1.js"></script>
+	<script>
+		var userID = localStorage.getItem("Id");
+		var uid = localStorage.getItem("uid");
+		var shopindex = 0;
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		//获取 url 后的参数方法。
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r != null) return decodeURI(r[2]);
+			return null;
+		}
+		var name = GetQueryString("id"); // 产品名称
+		//		alert(name);
+		var img = GetQueryString("img"); // 产品展示图
+
+		var ordid = GetQueryString("ordid"); // 订单Id
+		document.getElementById("nameT").innerText = name;
+		document.getElementById("imgP").src = img;
+		$("#why").click(function() {
+			$("#on").show();
+		})
+		var whyText, mc;
+		$(".up-text2").click(function() {
+			$(".up-text2").removeClass("gou");
+			$(this).addClass("gou");
+			whyText = $(this).text();
+			mc = $("#whytui").attr('value', whyText);
+			mc = whyText;
+			setTimeout(function() {
+				$("#on").hide();
+			}, 200);
+		})
+
+		//点击提交
+		$(".footer-down").click(function() {
+			var dpmc = $("textarea").eq(0).val();
+			var allwhy = "退款理由：" + mc + " 退款详情：" + dpmc;
+			if(mc == "" || mc == null || mc == undefined) {
+				alert("请选择退款原因~");
+				return false;
+			} else if(dpmc == "" || dpmc == null || dpmc == undefined) {
+				alert("请填写详细原因~");
+				return false;
+			} else {
+				document.getElementById("tijiao").innerText = "正在提交中...";
+				$(".footer-down").off("click");
+				$(".footer-down").attr('disabled', 'disabled');
+				var ar = new Array();
+				ar.InterfaceAddress = "api/Refund";
+				ar.orderID = ordid;
+				ar.UserID = userID;
+				ar.ReundString = allwhy;
+				ar.Handshake_Time = CurentTime('-', false);
+				aes(ar, "endpingjia");
+			}
+		})
+
+		function endpingjia(rs) {
+			var TData = eval("(" + rs + ")");
+			if(TData.suc) {
+				alert(TData.msg);
+				//				if(confirm("您确定要退出登录吗？")) {
+				setTimeout(
+					mui.openWindow({
+						url: "dingdan.html",
+						id: "dingdan",
+						show: {
+							autoShow: true,
+						},
+						waiting: {}
+					}), 200)
+			} else {
+				alert(TData.msg);
+			}
+
+		}
+	</script>
+
+</html>
